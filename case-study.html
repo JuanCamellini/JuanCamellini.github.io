@@ -14,8 +14,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Novu — SaaS Dashboard redesign case study by Eliott. How a full UX overhaul reduced cognitive load by 40% and improved trial-to-paid conversion."/>
-  <meta name="author" content="Eliott"/>
+  <meta name="description" content="Novu — SaaS Dashboard redesign case study by Juan Camellini. How a full UX overhaul reduced cognitive load by 40% and improved trial-to-paid conversion."/>
+  <meta name="author" content="JuanCamellini"/>
   <meta property="og:title" content="Novu — SaaS Dashboard · Case Study by Eliott"/>
   <meta property="og:type" content="article"/>
   <title>Novu — SaaS Dashboard · Case Study — Eliott</title>
@@ -485,8 +485,11 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const yearElement = document.getElementById('yr');
 
+    if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
     // Reveal on scroll
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
