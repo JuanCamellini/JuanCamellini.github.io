@@ -14,11 +14,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Novu — SaaS Dashboard redesign case study by Juan Camellini. How a full UX overhaul reduced cognitive load by 40% and improved trial-to-paid conversion."/>
+  <meta name="description" content="Amazon Market Analysis case study by Juan Camellini — an end-to-end data pipeline from API extraction to Power BI, analyzing product performance across four Amazon categories."/>
   <meta name="author" content="JuanCamellini"/>
   <meta property="og:title" content=" - JuanCamellini"/>
   <meta property="og:type" content="article"/>
-  <title> — JuanCamellini</title>
+  <title>Amazon Market Analysis — by Juan Camellini</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -151,37 +151,39 @@
 
         <!-- Tags + date -->
         <div class="flex flex-wrap items-center gap-3 mb-6">
-          <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">SaaS</span>
-          <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">Figma</span>
-          <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">Tailwind</span>
-          <span class="text-xs text-zinc-400 ml-1">2025 · 6 weeks</span>
+          <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">Data Analysis</span>
+          <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">E-commerce</span>
+          <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">API</span>
+          <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">Web Scrap</span>
+          <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">Power BI</span>
+          <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">SQL</span>
+          <span class="text-xs text-zinc-400 ml-1">2026 · March</span>
         </div>
 
         <h1 class="reveal font-display font-bold text-4xl md:text-5xl lg:text-6xl text-zinc-900 dark:text-white leading-tight mb-6">
-          Novu — SaaS Dashboard Redesign
+          Amazon Market Analysis — End-to-End Data Pipeline
         </h1>
 
         <p class="reveal d1 text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed mb-10 max-w-2xl">
-          A complete UX and UI overhaul of a B2B notification management platform — reducing cognitive load, streamlining the core workflow, and converting more trial users into paying customers.
-        </p>
+An end-to-end data analysis project simulating a real-world market research workflow: extracting live product data via the Rainforest API, transforming it with Python, modeling it in PostgreSQL, and visualizing it in an interactive Power BI dashboard.        </p>
 
         <!-- Meta row -->
         <div class="reveal d2 grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-t border-b border-zinc-100 dark:border-zinc-900">
           <div>
-            <p class="text-xs text-zinc-400 uppercase tracking-widest mb-1">Client</p>
-            <p class="font-medium text-zinc-900 dark:text-white text-sm">Novu Inc.</p>
+            <p class="text-xs text-zinc-400 uppercase tracking-widest mb-1">Type</p>
+            <p class="font-medium text-zinc-900 dark:text-white text-sm">Personal Project.</p>
           </div>
           <div>
             <p class="text-xs text-zinc-400 uppercase tracking-widest mb-1">Role</p>
-            <p class="font-medium text-zinc-900 dark:text-white text-sm">Lead UI/UX Designer</p>
+            <p class="font-medium text-zinc-900 dark:text-white text-sm">Data Analyst / Python Developer (solo project)</p>
           </div>
           <div>
-            <p class="text-xs text-zinc-400 uppercase tracking-widest mb-1">Timeline</p>
-            <p class="font-medium text-zinc-900 dark:text-white text-sm">Jan – Feb 2025</p>
+            <p class="text-xs text-zinc-400 uppercase tracking-widest mb-1">Data Source</p>
+            <p class="font-medium text-zinc-900 dark:text-white text-sm">Rainforest API (live Amazon data)</p>
           </div>
           <div>
             <p class="text-xs text-zinc-400 uppercase tracking-widest mb-1">Deliverables</p>
-            <p class="font-medium text-zinc-900 dark:text-white text-sm">Figma, HTML/CSS</p>
+            <p class="font-medium text-zinc-900 dark:text-white text-sm">Jupyter Notebooks, PostgreSQL views, Power BI dashboard</p>
           </div>
         </div>
       </header>
@@ -189,7 +191,7 @@
       <!-- ═══ HERO IMAGE ═══ -->
       <div class="max-w-6xl mx-auto px-6 mb-16">
         <div class="reveal photo-frame w-full h-72 md:h-[480px] rounded-3xl">
-          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1400&q=80" alt="Novu — SaaS Dashboard redesign hero" loading="eager"/>
+          <img src="assets/img/projects/amazon_analytics/" alt="Amazon Market Analysis dashboard overview — Power BI" loading="eager"/>
         </div>
       </div>
 
@@ -197,20 +199,20 @@
       <div class="max-w-4xl mx-auto px-6 mb-16">
         <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-4">
           <div class="stat-card bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-5 pl-6">
-            <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">−40%</p>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 leading-snug">Cognitive load (SUS score)</p>
+            <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">932 </p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 leading-snug">Products analyzed</p>
           </div>
           <div class="stat-card bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-5 pl-6">
-            <p class="font-display font-bold text-3xl text-accent">+27%</p>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 leading-snug">Trial-to-paid conversion</p>
+            <p class="font-display font-bold text-3xl text-accent">4/p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 leading-snug">Categories compared</p>
           </div>
           <div class="stat-card bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-5 pl-6">
-            <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">−35%</p>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 leading-snug">Support tickets (onboarding)</p>
+            <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">7</p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 leading-snug">SQL views built</p>
           </div>
           <div class="stat-card bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-5 pl-6">
-            <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">4.8/5</p>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 leading-snug">Post-launch NPS</p>
+            <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">5</p>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 leading-snug">Notebooks (full pipeline)</p>
           </div>
         </div>
       </div>
@@ -218,41 +220,33 @@
       <!-- ═══ ARTICLE BODY ═══ -->
       <div class="max-w-3xl mx-auto px-6 pb-4 prose-cs">
 
-        <h2>The brief</h2>
-        <p>Novu is a B2B notification infrastructure platform — it lets developers route, manage, and monitor notifications across email, SMS, push, and in-app channels. The product was technically solid, but the dashboard had grown organically over two years without a coherent design strategy. By early 2025, the team were seeing high churn in the 14-day trial window and receiving consistent feedback that the platform was "powerful but overwhelming."</p>
-        <p>My mandate was simple: fix the first-hour experience without rebuilding the product from scratch. The budget was fixed and the engineering team had six weeks to ship.</p>
+        <h2>Project overview</h2>
+        <p>This project analyzes top-performing products across four major Amazon categories — Electronics, Beauty &amp; Personal Care, Home &amp; Kitchen, and Sports &amp; Outdoors — to simulate a real-world market analysis workflow. The goal was to take raw e-commerce data and turn it into structured, decision-ready insights, the same way a data analyst would approach a market research request.</p>
+        <p>I initially explored a Kaggle dataset for this, but the regional data wasn't representative of the current US market, so I pivoted to live extraction via the Rainforest API instead — treating real-time data collection as the differentiator of the project rather than a shortcut around it.</p>
 
-        <blockquote>
-          <p>"We're losing users in the first 20 minutes. They sign up, see the dashboard, and just bounce. The product does exactly what they need — they just can't find it."</p>
-        </blockquote>
+        <h2>Objective &amp; data pipeline</h2>
+        <p>The objective was to identify the patterns behind top-performing Amazon products by analyzing sales distribution, pricing strategy, review behavior, discount usage, and category-level performance.</p>
 
-        <h2>Discovery & research</h2>
-        <h3>User interviews</h3>
-        <p>I ran 9 user interviews with a mix of current paying customers and recently churned trial users. The sessions were 45-minute moderated usability tests combined with post-task interviews. Key findings:</p>
-        <ul>
-          <li>7 of 9 users couldn't locate the "Workflows" section without help during their first session</li>
-          <li>The notification log and the analytics panel were confused for one another by 5 users</li>
-          <li>The sidebar had 14 top-level navigation items — users reported feeling "unsure where to start"</li>
-          <li>Trial users specifically wanted a "get your first notification live" path, not a feature overview</li>
-        </ul>
+        <h3>Data source</h3>
+        <p>Data was collected using the Rainforest API. Two datasets were built: <strong>search_clean</strong>, a market-level dataset with ~932 products scraped across categories and search pages (price, rating, review count, sales approximation, discount info, search position), and <strong>products_top</strong>, a product-level enrichment dataset with brand, subcategory, seller info, Best Seller Rank, and engagement metrics.</p>
 
-        <h3>Heuristic audit</h3>
-        <p>I ran a full Nielsen heuristic evaluation of the existing interface and identified 23 violations across 6 categories. The most critical were around visibility of system status, recognition over recall, and error prevention in the workflow builder.</p>
+        <h3>Pipeline</h3>
+        <p>API (Rainforest) → JSON → Parsing → Structured Dataset → EDA → SQL → Power BI</p>
 
-      </div>
+</div>
 
       <!-- Full-width image -->
       <div class="max-w-5xl mx-auto px-6 mb-4">
         <div class="reveal photo-frame w-full h-56 md:h-80 rounded-2xl">
-          <img src="https://images.unsplash.com/photo-1581472723648-909f4851d4ae?w=1200&q=80" alt="Existing dashboard audit — heuristic violations mapped" loading="lazy"/>
+          <img src="assets/img/projects/amazon_analytics/eda-notebook.png" alt="Exploratory data analysis notebook — distribution and category charts" loading="lazy"/>
         </div>
-        <p class="img-caption">Existing dashboard with heuristic violations annotated during the audit phase.</p>
+        <p>Exploratory analysis output from notebook 05_eda.ipynb, showing sales distribution and category-level comparisons.</p>
       </div>
 
       <div class="max-w-3xl mx-auto px-6 pb-4 prose-cs">
 
-        <h2>Design strategy</h2>
-        <p>Based on the research, I built the redesign around three principles:</p>
+      <h2>Notebook structure</h2>
+      <p>The pipeline was split into five notebooks, each with a single responsibility:</p>
 
       </div>
 
@@ -263,22 +257,34 @@
             <div class="w-10 h-10 bg-orange-50 dark:bg-zinc-800 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
-            <h3 class="font-display font-bold text-zinc-900 dark:text-white mb-2" style="font-size:1rem;margin:0 0 .5rem;color:inherit;">Progressive disclosure</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed" style="margin:0;color:inherit;">Show only what's needed for the current task. Advanced features revealed on demand, not upfront.</p>
+            <h3 class="font-display font-bold text-zinc-900 dark:text-white mb-2" style="font-size:1rem;margin:0 0 .5rem;color:inherit;">01_api_search.ipynb</h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed" style="margin:0;color:inherit;">Extracts product data across categories and search result pages via the Rainforest API.</p>
           </div>
           <div class="bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800">
             <div class="w-10 h-10 bg-orange-50 dark:bg-zinc-800 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
             </div>
-            <h3 class="font-display font-bold text-zinc-900 dark:text-white mb-2" style="font-size:1rem;margin:0 0 .5rem;color:inherit;">Opinionated navigation</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed" style="margin:0;color:inherit;">Reduce the sidebar to 6 core items. Group secondary actions in context panels rather than global nav.</p>
+            <h3 class="font-display font-bold text-zinc-900 dark:text-white mb-2" style="font-size:1rem;margin:0 0 .5rem;color:inherit;">02_api_product.ipynb</h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed" style="margin:0;color:inherit;">Enriches top-performing products with deeper, product-level attributes.</p>
           </div>
           <div class="bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800">
             <div class="w-10 h-10 bg-orange-50 dark:bg-zinc-800 rounded-xl flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
             </div>
-            <h3 class="font-display font-bold text-zinc-900 dark:text-white mb-2" style="font-size:1rem;margin:0 0 .5rem;color:inherit;">Goal-first onboarding</h3>
-            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed" style="margin:0;color:inherit;">Replace the feature tour with a 3-step "send your first notification" flow that delivers an aha-moment in under 5 minutes.</p>
+            <h3 class="font-display font-bold text-zinc-900 dark:text-white mb-2" style="font-size:1rem;margin:0 0 .5rem;color:inherit;">03_parse_search.ipynb</h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed" style="margin:0;color:inherit;">Parses raw JSON responses into a structured, analysis-ready dataset.</p>
+          </div> <div class="bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800">
+            <div class="w-10 h-10 bg-orange-50 dark:bg-zinc-800 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-zinc-900 dark:text-white mb-2" style="font-size:1rem;margin:0 0 .5rem;color:inherit;">04_parse_product.ipynb</h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed" style="margin:0;color:inherit;">Processes the enriched product data into its final structured form.</p>
+          </div> <div class="bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800">
+            <div class="w-10 h-10 bg-orange-50 dark:bg-zinc-800 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-zinc-900 dark:text-white mb-2" style="font-size:1rem;margin:0 0 .5rem;color:inherit;">05_eda.ipynb</h3>
+            <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed" style="margin:0;color:inherit;">Exploratory data analysis — distributions, correlations, and category comparisons using pandas, matplotlib and seaborn.</p>
           </div>
         </div>
       </div>
@@ -286,8 +292,8 @@
       <div class="max-w-3xl mx-auto px-6 pb-4 prose-cs">
 
         <h2>Process</h2>
-        <h3>Week 1–2 · Information architecture</h3>
-        <p>I ran a card sorting exercise with 12 participants to rebuild the navigation taxonomy from scratch. The 14-item sidebar collapsed to 6 primary destinations. I then produced low-fidelity wireframes in Figma for the 8 most-visited screens, running rapid async reviews with the product team using Loom walkthroughs.</p>
+        <h3>Information architecture</h3>
+        <p>I started using CSVs files from Kaggle for large databases, but the information was old and not for the US market. API Rainforest gave me the real time info by web scrapping the amazon.com site. With this i use all the tokens to store all the data that i can then i did the below steps.</p>
 
       </div>
 
@@ -298,36 +304,36 @@
           <div class="flex gap-5 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-100 dark:border-zinc-800">
             <div class="step-badge shrink-0 mt-0.5">1</div>
             <div>
-              <p class="font-display font-bold text-zinc-900 dark:text-white mb-1">Card sorting + IA rebuild</p>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Remote card sort with 12 participants via Optimal Workshop. 14 nav items → 6 clear destinations with zero ambiguous groupings.</p>
+              <p class="font-display font-bold text-zinc-900 dark:text-white mb-1">Data extraction</p>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Live product data pulled via Rainforest API across 4 categories and multiple search pages. ~932 products collected at the search level.</p>
             </div>
           </div>
           <div class="flex gap-5 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-100 dark:border-zinc-800">
             <div class="step-badge shrink-0 mt-0.5">2</div>
             <div>
-              <p class="font-display font-bold text-zinc-900 dark:text-white mb-1">Lo-fi wireframes & async review</p>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">8 key screens sketched in Figma wireframe mode. Async review via Loom with the product team — 3 iteration rounds over 4 days.</p>
+              <p class="font-display font-bold text-zinc-900 dark:text-white mb-1">Parsing & structuring</p>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Raw JSON responses parsed into clean, structured datasets using pandas — separating market-level data from product-level enrichment.</p>
             </div>
           </div>
           <div class="flex gap-5 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-100 dark:border-zinc-800">
             <div class="step-badge shrink-0 mt-0.5">3</div>
             <div>
-              <p class="font-display font-bold text-zinc-900 dark:text-white mb-1">Hi-fi design & component library</p>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Full Figma component library built on Auto Layout. 40+ components covering all states (empty, loading, error). Dark mode tokens included.</p>
+              <p class="font-display font-bold text-zinc-900 dark:text-white mb-1">Exploratory analysis</p>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">EDA notebook covering sales distribution, pricing behavior, ratings, discount strategy, and organic vs. sponsored positioning.</p>
             </div>
           </div>
           <div class="flex gap-5 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-100 dark:border-zinc-800">
             <div class="step-badge shrink-0 mt-0.5">4</div>
             <div>
-              <p class="font-display font-bold text-zinc-900 dark:text-white mb-1">Usability testing & iteration</p>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">5 moderated sessions on the hi-fi prototype. 2 significant UX issues surfaced and resolved before handoff. SUS score improved from 54 → 82.</p>
+              <p class="font-display font-bold text-zinc-900 dark:text-white mb-1">SQL modeling</p>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Relational schema built in PostgreSQL. Analytical queries using CASE WHEN, JOINs with aggregated subqueries, and window functions (RANK() OVER PARTITION BY). ~7 views created as a semantic layer for BI.</p>
             </div>
           </div>
           <div class="flex gap-5 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-100 dark:border-zinc-800">
             <div class="step-badge shrink-0 mt-0.5">5</div>
             <div>
-              <p class="font-display font-bold text-zinc-900 dark:text-white mb-1">Handoff & front-end support</p>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Zeroheight design doc + Tailwind CSS implementation of the new design tokens. Present during sprint to support the engineering team on edge cases.</p>
+              <p class="font-display font-bold text-zinc-900 dark:text-white mb-1">Power BI dashboard</p>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Four-page interactive dashboard (Market Analysis, Category Analysis, Top Products, Product Detail drill-through) consuming the SQL views, with KPI cards and dynamic filtering.</p>
             </div>
           </div>
         </div>
@@ -338,7 +344,14 @@
         <div class="reveal photo-frame w-full h-56 md:h-80 rounded-2xl">
           <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="High-fidelity Figma screens — new dashboard layout" loading="lazy"/>
         </div>
-        <p class="img-caption">Final hi-fi screens showing the redesigned sidebar, dashboard home, and notification workflow builder.</p>
+        <p class="img-caption">Market Analysis page — category-level trends and KPIs.</p>
+      </div>
+
+      <div class="max-w-5xl mx-auto px-6 mb-4">
+        <div class="reveal photo-frame w-full h-56 md:h-80 rounded-2xl">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="High-fidelity Figma screens — new dashboard layout" loading="lazy"/>
+        </div>
+        <p class="img-caption">Product Detail drill-through page with product-level insights.</p>
       </div>
 
       <!-- Before / After split -->
@@ -362,36 +375,31 @@
       <div class="max-w-3xl mx-auto px-6 pb-16 prose-cs">
 
         <h2>Key design decisions</h2>
-        <h3>Collapsing the sidebar</h3>
-        <p>The original sidebar mixed primary destinations with contextual actions and account settings indiscriminately. I applied a strict three-tier hierarchy: primary navigation (6 items, always visible), contextual actions (appear in a right panel when relevant), and account/settings (collapsed under an avatar menu). This alone reduced the cognitive entry cost significantly — users knew where they were and where they could go.</p>
+        <h3>Choosing live data over Kaggle</h3>
+        <p>A prior approach using a Kaggle CSV was discarded because the regional data wasn't representative of the current US market. Switching to the Rainforest API meant building the extraction logic myself, but it made the analysis reflect real, current market conditions rather than a static historical snapshot.</p>
 
-        <h3>The onboarding checklist</h3>
-        <p>Rather than a product tour, I designed a persistent but dismissible checklist embedded in the dashboard home. Three steps: connect a channel, create a workflow, send a test notification. Each step launches an inline mini-wizard that completes within the dashboard without breaking context. In the first month post-launch, 68% of trial users completed all three steps vs 21% previously.</p>
+        <h3>Window functions for category ranking</h3>
+        <p>To extract the top 10 products per category in a single query, I used <code>RANK() OVER (PARTITION BY category)</code> instead of running separate queries per category — a cleaner and more scalable approach for the kind of comparison a stakeholder would actually ask for.</p>
 
-        <h3>Empty states as teachers</h3>
-        <p>Every empty state in the old design was a blank panel. In the redesign, each empty state includes a one-sentence explanation of what the section does, a primary CTA, and a secondary link to documentation. This reduced support tickets specifically about feature discovery by 35%.</p>
+        <h3>A semantic layer for Power BI</h3>
+        <p>Rather than connecting Power BI directly to raw tables, I built ~7 SQL views that pre-aggregate and structure the data specifically for BI consumption. This keeps the DAX layer simpler and the dashboard logic decoupled from the underlying schema.</p>
 
-        <h2>Results</h2>
+        <h2>Key insights</h2>
         <p>The redesign shipped in week 6, exactly on schedule. Metrics were tracked over the following 6 weeks post-launch compared to the same prior period.</p>
         <ul>
-          <li><strong>SUS (System Usability Scale) score:</strong> 54 → 82 (+28 points)</li>
-          <li><strong>Trial-to-paid conversion rate:</strong> +27%</li>
-          <li><strong>Onboarding completion (3-step flow):</strong> 21% → 68%</li>
-          <li><strong>Support tickets (onboarding-related):</strong> −35%</li>
-          <li><strong>Average time to first workflow created:</strong> 18 min → 4 min</li>
-          <li><strong>Post-launch NPS:</strong> 4.8/5</li>
+          <li><strong>Sales distribution:</strong> most products sell between 50–300 units/month, following a long-tail pattern — a small group reaches 1K+ sales</li>
+          <li><strong>Category performance:</strong> Beauty &amp; Personal Care drives ~60% of total sales and needs fewer discounts to generate demand; Sports &amp; Outdoors is the weakest performer</li>
+          <li><strong>Ratings:</strong> average rating is consistent across categories (~4.4–4.5), suggesting rating alone isn't a strong differentiator</li>
+          <li><strong>Discounts:</strong> ~50% of products overall use discounts, but Beauty relies on them far less (~25% vs. ~75% without)</li>
+          <li><strong>Pricing:</strong> Electronics is a clear outlier — median price ~$80, range up to $1000+ — while other categories sit around $15–20 with low variability</li>
+          <li><strong>Visibility:</strong> ~80% of top-ranking products appear organically vs. ~20% sponsored</li>
         </ul>
 
-        <blockquote>
-          <p>"Eliott completely changed how we think about our onboarding. The checklist alone added 6 figures to our ARR in the first quarter. Exceptionally thorough process and a pleasure to work with."</p>
-        </blockquote>
-
         <h2>Reflections</h2>
-        <p>The biggest lesson from this project: most SaaS UX problems aren't about aesthetics, they're about information architecture. The product was capable — users just couldn't find the value fast enough. A focused IA overhaul delivered more measurable ROI than a visual rebrand ever could have.</p>
-        <p>If I were to do it again, I'd push harder for a longer discovery phase. Six weeks is tight for a full dashboard redesign, and we had to make some navigation decisions based on incomplete card-sort data. The results held up, but another round of testing before hi-fi would have given me more confidence on a few borderline calls.</p>
-
+        <p>The biggest lesson from this project was about data quality over data volume: switching from a static Kaggle dataset to live API data was more work, but it's what made the insights actually trustworthy. A polished dashboard built on unrepresentative data isn't useful to anyone.</p>
+        <p>If I were to extend this project, I'd automate the extraction pipeline to run on a schedule, expand the dataset size, and explore basic sales forecasting on top of the existing structure.</p>
         <hr/>
-        <p><em>Interested in a similar engagement? <a href="index.html#contact">Get in touch</a> — I'm available for new projects from Q2 2025.</em></p>
+        <p><em>*Interested in the full code? Check out the [repository on GitHub](https://github.com/JuanCamellini/Amazon_Project_Analytics) — or [get in touch](https://juancamellini.github.io/index.html#contact) if you'd like to talk about it.* <a href="index.html#contact">Get in touch</a>.</em></p>
 
       </div>
     </article>
@@ -407,14 +415,14 @@
 
           <article class="reveal card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-colors">
             <div class="photo-frame w-full h-44">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Finlo — Fintech App" loading="lazy"/>
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Distribuidora Leos - Ecommerce" loading="lazy"/>
             </div>
             <div class="p-5">
               <div class="flex gap-2 mb-2">
-                <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">Landing page</span>
+                <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">E-commerce</span>
               </div>
               <a href="#">
-                <h3 class="font-display font-bold text-base text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Finlo — Fintech App</h3>
+                <h3 class="font-display font-bold text-base text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Distribuidora Leos - Ecommerce</h3>
               </a>
               <a href="#" class="text-sm font-medium text-accent nav-link">View project →</a>
             </div>
@@ -422,14 +430,14 @@
 
           <article class="reveal card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-colors">
             <div class="photo-frame w-full h-44">
-              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80" alt="Orea — Creative Agency" loading="lazy"/>
+              <img src="assets/img/projects/fada_xml_automation/Excel_tabla.png" alt="Files automatation - Python Scripts" loading="lazy"/>
             </div>
             <div class="p-5">
               <div class="flex gap-2 mb-2">
-                <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">Agency</span>
+                <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">Python Script</span>
               </div>
               <a href="#">
-                <h3 class="font-display font-bold text-base text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Orea — Creative Agency</h3>
+                <h3 class="font-display font-bold text-base text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Files automatation - Python Scripts</h3>
               </a>
               <a href="#" class="text-sm font-medium text-accent nav-link">View project →</a>
             </div>
@@ -437,14 +445,14 @@
 
           <article class="reveal card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-colors">
             <div class="photo-frame w-full h-44">
-              <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=700&q=80" alt="Bloom — E-commerce" loading="lazy"/>
+              <img src="assets/img/projects/data_jobs_python/salary_boxplot.png" alt="Data Jobs - Python Project" loading="lazy"/>
             </div>
             <div class="p-5">
               <div class="flex gap-2 mb-2">
-                <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">E-commerce</span>
+                <span class="text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-2.5 py-1 rounded-full">Data Analysis (Python)</span>
               </div>
               <a href="#">
-                <h3 class="font-display font-bold text-base text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Bloom — E-commerce</h3>
+                <h3 class="font-display font-bold text-base text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Data Jobs - Python Project</h3>
               </a>
               <a href="#" class="text-sm font-medium text-accent nav-link">View project →</a>
             </div>
