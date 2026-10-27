@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control de órdenes de retiro · Juan Tomas Camellini</title>
+<meta name="description" content="Trazabilidad de órdenes de retiro con criticidad por SLA, alerta diaria por proveedor, KPIs en SQL y un tablero de Power BI, sobre datos ficticios.">
+<meta property="og:title" content="Control de órdenes de retiro · Power BI, Python y SQL">
+<meta property="og:description" content="Criticidad por SLA, alerta diaria por proveedor, KPIs en SQL y un tablero de Power BI con detalle por cliente.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://juancamellini.github.io/proyectos/ordenes-retiro.html">
+<meta property="og:image" content="https://juancamellini.github.io/assets/img/retiros/01_tablero_principal.png">
+<link rel="alternate" hreflang="en" href="https://juancamellini.github.io/en/projects/pick-up-orders.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Ir al contenido</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Juan Camellini <span>· datos y operaciones</span></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="../#experiencia">Experiencia</a>
+      <a href="../#proyectos" aria-current="page">Proyectos</a>
+      <a href="../#contacto">Contacto</a>
+    </nav>
+    <a class="lang" href="../en/projects/pick-up-orders.html" hreflang="en" lang="en">EN</a>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <div class="page-head">
+    <div class="wrap">
+      <a class="back" href="../#proyectos">← Todos los proyectos</a>
+      <p class="eyebrow">Proyecto · Logística</p>
+      <h1>Control de órdenes de retiro</h1>
+      <p class="lead">Cuando una empresa le pide a un transporte que retire mercadería de sus clientes (devoluciones, mercadería dañada o sobrestock), las órdenes se traban en dos lugares: esperando el retiro, o retiradas pero nunca rendidas al depósito. Este proyecto toma el Excel maestro con el que trabaja el equipo y lo convierte en una lista diaria de órdenes críticas, un mail para cada proveedor y un tablero para logística y comercial.</p>
+      <ul class="tags"><li>Python</li><li>pandas</li><li>DuckDB / SQL</li><li>Power BI</li><li>DAX</li><li>pytest · 60 tests</li></ul>
+      <div class="actions" style="margin-top:20px">
+        <a class="btn primary" href="https://github.com/JuanCamellini/logistics-control-tower">Ver el código en GitHub</a>
+        <a class="btn" href="#tablero">Ver el tablero</a>
+      </div>
+      <p class="note">Replica un tablero que hice en mi trabajo y está rehecho desde cero. Las reglas, los umbrales y los volúmenes son los de la operación real. Los clientes, proveedores, direcciones y órdenes son inventados.</p>
+    </div>
+  </div>
+
+  <section class="tight">
+    <div class="wrap">
+      <figure class="figure-wide">
+        <a href="../assets/img/retiros/01_tablero_principal.png"><img src="../assets/img/retiros/01_tablero_principal.png" alt="Página principal del tablero: buscador, filtros, tarjetas de órdenes y bultos, porcentaje de críticas y tabla de detalle" width="1430" height="682"></a>
+        <figcaption>Página principal: buscador por orden, cliente o N° de cliente; filtros; órdenes y bultos por estado; % de críticas sobre las pendientes; y el detalle con un botón para abrir la ficha del cliente.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid two">
+        <div class="prose">
+          <h2>Qué demuestra</h2>
+          <ul>
+            <li><strong>Pasar un proceso operativo a reglas que se pueden probar:</strong> días hábiles, plazos por proveedor, criticidad, rangos de atraso, rutas y motivos de depuración.</li>
+            <li><strong>Un modelo estrella en SQL</strong> (DuckDB) y una consulta por cada KPI del tablero, en SQL estándar que también corre en PostgreSQL.</li>
+            <li><strong>Un tablero pensado para dos públicos:</strong> logística, que persigue órdenes, y comercial, que atiende al cliente.</li>
+            <li><strong>Alertas sin repetir avisos:</strong> el Excel guarda qué órdenes ya se notificaron.</li>
+            <li><strong>Power BI como código</strong> (.pbip): cada medida y cada visual se pueden revisar en Git.</li>
+          </ul>
+        </div>
+        <div class="prose">
+          <h2>Cómo funciona</h2>
+          <ol class="steps">
+            <li><strong>Genera el Excel maestro</strong> con las 21 columnas de la operación y unas 230 órdenes por mes entre tres proveedores.</li>
+            <li><strong>Aplica las reglas en Python:</strong> fecha de envío, días hábiles en cada estado, atraso, criticidad, ruta y motivo de depuración.</li>
+            <li><strong>Manda la alerta diaria:</strong> un mail por proveedor con sus órdenes que se volvieron críticas, y las marca para no repetirlas.</li>
+            <li><strong>Carga el modelo en DuckDB</strong> y calcula los KPIs en SQL.</li>
+            <li><strong>Alimenta Power BI:</strong> página principal, buscador y detalle por cliente.</li>
+            <li><strong>Prueba cada regla:</strong> 60 tests, la mayoría sobre órdenes armadas a mano con el resultado esperado calculado en un comentario.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap"><div class="prose">
+      <h2>Ciclo de una orden y SLA</h2>
+      <p>La orden se crea, sale hacia el proveedor un día hábil después y queda <strong>En gestión</strong>. Cuando el proveedor la retira pasa a <strong>Retirada</strong>, y cuando la rinde en el depósito, a <strong>En punto de control</strong>. También puede terminar <strong>Depurada</strong>.</p>
+      <p>Una orden es <strong>crítica</strong> cuando los días hábiles que lleva en un estado pendiente alcanzan el plazo de su proveedor:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Proveedor (ficticio)</th><th class="num">Días para retirar</th><th class="num">Días para rendir</th><th class="num">Órdenes por mes</th></tr></thead>
+          <tbody>
+            <tr><td>Expreso Delta</td><td class="num">2</td><td class="num">3</td><td class="num">~160</td></tr>
+            <tr><td>Logística Sur</td><td class="num">5</td><td class="num">7</td><td class="num">~10</td></tr>
+            <tr><td>Transportes Andinos</td><td class="num">10</td><td class="num">15</td><td class="num">~60</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted">Los días hábiles descuentan los fines de semana. Los días de atraso son corridos, desde la creación de la orden hasta que llega al depósito.</p>
+    </div></div>
+  </section>
+
+  <section id="tablero">
+    <div class="wrap">
+      <h2>El tablero</h2>
+      <p class="lead">Una página principal para seguir la operación y un detalle por cliente para responder rápido cuando comercial pregunta “¿qué pasó con el retiro de este cliente?”.</p>
+      <div class="gallery">
+        <figure>
+          <a href="../assets/img/retiros/02_graficos.png"><img src="../assets/img/retiros/02_graficos.png" alt="Gráficos de órdenes por estado, pendientes por proveedor, antigüedad, motivos de depuración, atraso promedio y bultos por provincia" width="1430" height="632" loading="lazy"></a>
+          <figcaption>Gráficos: estado, pendientes por proveedor, antigüedad, motivos de depuración, atraso promedio por proveedor y bultos pendientes por provincia. Al elegir una orden, se resalta en cada gráfico.</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/retiros/03_detalle_cliente.png"><img src="../assets/img/retiros/03_detalle_cliente.png" alt="Detalle por cliente con su ficha, KPIs comparados con el promedio y la línea de tiempo de sus órdenes" width="1430" height="682" loading="lazy"></a>
+          <figcaption>Detalle por cliente: ficha, KPIs comparados con el promedio general y la línea de tiempo de cada orden, con el SLA de cada tramo en verde o rojo.</figcaption>
+        </figure>
+        <figure class="wide">
+          <a href="../assets/img/retiros/04_detalle_depuradas_mes.png"><img src="../assets/img/retiros/04_detalle_depuradas_mes.png" alt="Órdenes depuradas del cliente con su motivo, y órdenes por mes" width="1430" height="340" loading="lazy"></a>
+          <figcaption>Órdenes depuradas del cliente, con motivo y observación, y órdenes por mes, con los meses sin órdenes en cero.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid two">
+        <div class="prose">
+          <h2>Resultado con la muestra</h2>
+          <p class="muted small">Fecha de corte 31/08/2026, ocho meses de datos ficticios.</p>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><td>Órdenes totales</td><td class="num">1.763</td></tr>
+                <tr><td>Pendientes</td><td class="num">124</td></tr>
+                <tr><td>Críticas</td><td class="num">31</td></tr>
+                <tr><td>% críticas sobre pendientes</td><td class="num">25,0 %</td></tr>
+                <tr><td>% depuradas</td><td class="num">4,4 %</td></tr>
+                <tr><td>Tiempo total del ciclo</td><td class="num">15,7 días</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="prose">
+          <h2>Decisiones de diseño</h2>
+          <ul>
+            <li><strong>Las reglas viven en Python, no en DAX.</strong> Se calculan una vez y tienen tests, así el tablero y los mails nunca dan números distintos.</li>
+            <li><strong>La alerta manda solo lo nuevo.</strong> La columna “Mail” funciona como registro: cada orden se avisa el primer día en que es crítica y nunca más.</li>
+            <li><strong>Fecha de corte fija.</strong> Cada corrida da el mismo resultado, y eso permite probarla.</li>
+            <li><strong>El atraso promedio por proveedor no cambia con los filtros:</strong> es la referencia contra la que se compara todo lo demás.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Stack</h2>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><th>Datos y reglas</th><td>Python 3 · pandas · NumPy (días hábiles) · openpyxl</td></tr>
+            <tr><th>Modelo y KPIs</th><td>DuckDB · SQL estándar (modelo estrella)</td></tr>
+            <tr><th>Tablero</th><td>Power BI Desktop · proyecto .pbip (modelo TMDL e informe PBIR) · DAX</td></tr>
+            <tr><th>Calidad</th><td>pytest (60 tests) · validación del informe contra los esquemas de Microsoft</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="actions" style="margin-top:24px">
+        <a class="btn primary" href="https://github.com/JuanCamellini/logistics-control-tower">Ver el código en GitHub</a>
+        <a class="btn" href="facturacion.html">Siguiente proyecto: facturación con ARCA →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Juan Tomas Camellini</span>
+    <span><a href="mailto:juantomascamellini@gmail.com">juantomascamellini@gmail.com</a> · <a href="https://www.linkedin.com/in/juancamellini">LinkedIn</a></span>
+  </div>
+</footer>
+</body>
+</html>

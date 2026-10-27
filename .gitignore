@@ -1,0 +1,11 @@
+# Patterns the privacy check looks for (phone, address, salary...). They must never be public.
+tools/private_patterns.txt
+
+# Working notes for Claude Code: they point to Juan's private folders
+CLAUDE.md
+
+# Local previews and editor files
+.preview/
+.vscode/
+Thumbs.db
+desktop.ini

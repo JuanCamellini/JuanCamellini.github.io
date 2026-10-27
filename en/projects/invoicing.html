@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electronic invoicing with ARCA · Juan Tomas Camellini</title>
+<meta name="description" content="From a monthly spreadsheet to about 100 electronic invoices authorized by ARCA, Argentina's tax agency, with PDFs and a control that never issues a duplicate.">
+<meta property="og:title" content="Automated electronic invoicing with ARCA">
+<meta property="og:description" content="Data cleaning, validation and reconciliation against ARCA: about 100 invoices a month with authorization code, PDF and duplicate protection.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://juancamellini.github.io/en/projects/invoicing.html">
+<meta property="og:image" content="https://juancamellini.github.io/assets/img/facturacion/lote-emitido.png">
+<link rel="alternate" hreflang="es" href="https://juancamellini.github.io/proyectos/facturacion.html">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Juan Camellini <span>· data &amp; operations</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="../#experience">Experience</a>
+      <a href="../#projects" aria-current="page">Projects</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+    <a class="lang" href="../../proyectos/facturacion.html" hreflang="es" lang="es">ES</a>
+  </div>
+</header>
+
+<main id="content">
+
+  <div class="page-head">
+    <div class="wrap">
+      <a class="back" href="../#projects">← All projects</a>
+      <p class="eyebrow">Project · Automation and data</p>
+      <h1>Electronic invoicing with ARCA</h1>
+      <p class="lead">From a monthly spreadsheet to about 100 electronic invoices authorized by ARCA (Argentina's federal tax agency, formerly AFIP), with their PDFs and a control that never issues the same invoice twice. I built it for the health practice where I handle billing.</p>
+      <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>ARCA web services (SOAP)</li><li>Playwright</li><li>pytest · 730 tests</li></ul>
+      <!-- TODO(Juan): update the status when the health insurer approves the invoice, and after the November batch. -->
+      <p style="margin-top:18px"><span class="badge ok">Status as of 23/10/2026</span> <span class="muted small">First real invoice issued from the app. A full month in production is next.</span></p>
+    </div>
+  </div>
+
+  <section class="tight">
+    <div class="wrap">
+      <figure>
+        <video controls preload="metadata" poster="../../assets/img/facturacion/lote-emitido.png" width="1280" height="720">
+          <source src="../../assets/video/facturacion-demo.mp4" type="video/mp4">
+          <a href="../../assets/video/facturacion-demo.mp4">Download the video (MP4, 3 min)</a>
+        </video>
+        <figcaption>A 3-minute walkthrough of a full month: patient register, session rate, a spreadsheet with an error, validation, batch issuing, PDF, history and a credit note. The app is in Spanish. It uses only fictional data and a simulated ARCA, in the app's test mode.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid two">
+        <div class="prose">
+          <h2>The problem</h2>
+          <p>A physiotherapy practice bills its sessions to health insurers every month: <strong>about 100 invoices a month, keyed in one by one</strong> on ARCA's portal, copying data from an Excel file. That took <strong>the first ten days of every month</strong>.</p>
+          <p>The spreadsheet had grown without rules:</p>
+          <ul>
+            <li><strong>15 different spellings</strong> of 6 VAT statuses, and <strong>42</strong> of 3 services;</li>
+            <li>tax IDs that were incomplete, had an extra digit or held the patient's national ID;</li>
+            <li>typos that made it onto invoices (<code>SE3SIONES</code>, <code>HIDROTERPIA</code>).</li>
+          </ul>
+          <p>Mistakes are expensive here: a wrong invoice <strong>already has its authorization code</strong> and can't be deleted, only cancelled with a credit note. If an invoice goes out twice, the insurer may reject the whole month.</p>
+        </div>
+        <div class="prose">
+          <h2>What it shows for a data and operations role</h2>
+          <ul>
+            <li><strong>Cleaning messy data:</strong> 15 spellings of 6 VAT statuses and 42 of 3 services, normalized into a register that is loaded once.</li>
+            <li><strong>Validation rules</strong> row by row before issuing, and <strong>duplicate control</strong> enforced by the database.</li>
+            <li><strong>Reconciliation against an external source:</strong> if something fails midway, the app asks ARCA what was actually issued before retrying.</li>
+            <li><strong>SQL and PostgreSQL:</strong> partial unique indexes, triggers and an audit table.</li>
+            <li><strong>Process documentation:</strong> every ARCA rule was checked against the official documentation before it was coded.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Numbers</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Metric</th><th>Value</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>Manual entry before the app</td><td>The first 10 days of every month</td><td>Measured at the practice</td></tr>
+            <tr><td>Invoices a month</td><td>About 100</td><td>Measured at the practice</td></tr>
+            <tr><td>Amounts</td><td>101 hand-made invoices reproduced to the cent, including 21 with 10.5% VAT</td><td>App validation against months already billed</td></tr>
+            <tr><td>Automated tests</td><td>730, against a real PostgreSQL database in a temporary schema</td><td>The app's test suite</td></tr>
+            <!-- TODO(Juan): add the real time after the November 2026 batch. -->
+            <tr><td>Process time with the app</td><td><span class="badge warn">Measured in November 2026</span></td><td>First full month in production</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>The monthly flow</h2>
+      <p class="lead">An internal web app that runs on the practice's two PCs and shares one database. The whole month fits in six steps.</p>
+      <div class="table-wrap">
+        <table class="first-col-nowrap">
+          <thead><tr><th>Step</th><th>What the app does</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. Register</strong></td><td>Patients, insurers and memberships are loaded once. The invoice goes to the insurer; the patient appears in the line item text.</td></tr>
+            <tr><td><strong>2. Monthly rate</strong></td><td>One session rate per resolution, for every insurer. It is never typed row by row.</td></tr>
+            <tr><td><strong>3. Spreadsheet</strong></td><td>The app builds the month's spreadsheet with the agreed sessions. The user only adjusts sessions or skips rows.</td></tr>
+            <tr><td><strong>4. Review</strong></td><td>It validates everything and flags errors row by row. It works out the invoice type (A or B) from the recipient's VAT status, the amounts and the text of each invoice.</td></tr>
+            <tr><td><strong>5. Issuing</strong></td><td>One at a time or the whole batch, through ARCA's official web service, with live progress.</td></tr>
+            <tr><td><strong>6. Control</strong></td><td>Each invoice's PDF lands in its folder. The history page downloads a control Excel file and a ZIP with the PDFs, and credit notes are issued from there.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gallery">
+        <figure>
+          <a href="../../assets/img/facturacion/planilla-con-error.png"><img src="../../assets/img/facturacion/planilla-con-error.png" alt="Monthly spreadsheet rejected, with the row in error highlighted in red" width="1280" height="720" loading="lazy"></a>
+          <figcaption>A spreadsheet with an error is rejected as a whole and the row is flagged. Nothing is saved.</figcaption>
+        </figure>
+        <figure>
+          <a href="../../assets/img/facturacion/lote-validado.png"><img src="../../assets/img/facturacion/lote-validado.png" alt="Validated batch with the type, amount and status of each invoice" width="1280" height="720" loading="lazy"></a>
+          <figcaption>Once the spreadsheet is fixed, the batch is validated: type, amount and text of each invoice.</figcaption>
+        </figure>
+        <figure>
+          <a href="../../assets/img/facturacion/confirmar-factura.png"><img src="../../assets/img/facturacion/confirmar-factura.png" alt="Confirmation screen with everything that will be sent to ARCA" width="1280" height="720" loading="lazy"></a>
+          <figcaption>Before issuing, the screen shows exactly what goes to ARCA.</figcaption>
+        </figure>
+        <figure>
+          <a href="../../assets/img/facturacion/pdf-factura.png"><img src="../../assets/img/facturacion/pdf-factura.png" alt="Type B invoice PDF generated by the app" width="1280" height="720" loading="lazy"></a>
+          <figcaption>ARCA only returns the authorization code: the app generates the PDF, matching ARCA's layout and QR code.</figcaption>
+        </figure>
+        <figure class="wide">
+          <a href="../../assets/img/facturacion/historial.png"><img src="../../assets/img/facturacion/historial.png" alt="Invoice history with filters, Excel download and a ZIP of PDFs" width="1280" height="720" loading="lazy"></a>
+          <figcaption>History: search, control Excel file, ZIP of PDFs and credit notes.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Technical decisions</h2>
+      <div class="grid two">
+        <article class="card">
+          <h3>Official integration, not a bot on the portal</h3>
+          <p>Invoices are issued through ARCA's official web services: WSAA for authentication, with CMS signing and an X.509 certificate, and WSFEv1 for invoicing. Driving the portal with a browser was ruled out: one click in the wrong place leaves a tax document that can't be undone.</p>
+        </article>
+        <article class="card">
+          <h3>The database guarantees “never twice”</h3>
+          <p>Each invoice has an idempotency key (membership, month, service and document type) protected by PostgreSQL partial unique indexes. Two invoices for the same thing are impossible, even if both PCs issue at once. Triggers block changes to an issued invoice.</p>
+        </article>
+        <article class="card">
+          <h3>A state machine that assumes everything can fail</h3>
+          <p>An invoice moves to “sent, unconfirmed” before ARCA is called. If power or internet drops, the app doesn't retry blindly when it comes back: it asks ARCA whether the document exists, and only then marks it as issued or sends it again.</p>
+        </article>
+        <article class="card">
+          <h3>Money in Decimal, never float</h3>
+          <p>Amounts use two decimals and half-up rounding. They were checked against 101 hand-made invoices and matched to the cent.</p>
+        </article>
+        <article class="card">
+          <h3>Health data treated as such</h3>
+          <p>The app handles third parties' health data, covered by Argentina's data protection law (Law 25,326): the repository never holds real data, there are checks before every commit, one certificate per PC with a protected key, and the app only listens on the local machine.</p>
+        </article>
+        <article class="card">
+          <h3>Proving the tests catch what they should</h3>
+          <p>730 tests on synthetic data. On top of that, every important safeguard was broken on purpose, one at a time, to confirm that some test fails. That exposed tests that were passing for the wrong reason.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid two">
+        <div class="prose">
+          <h2>Results</h2>
+          <ul>
+            <li>The database, register, validation and calculation stages are signed off against real data: amounts match the hand-billed months to the cent.</li>
+            <li><strong>First real invoice issued from the app.</strong> Its QR code opens ARCA's verification page, which shows it as authorized. The insurer's portal accepted the PDF upload; approval is pending.</li>
+            <li>Credit notes (full, partial and covering several invoices at once) were tested in ARCA's test environment.</li>
+            <li>What took ten days a month becomes: upload the spreadsheet, review, issue.</li>
+          </ul>
+          <h2 style="margin-top:1.4em">What's next</h2>
+          <p>First, a full month in production. Then, offering it as a service to other healthcare providers who bill insurers the same way: separating each client's data, using ARCA's official delegation, supporting type C invoices for small taxpayers, and covering the legal side of handling health data.</p>
+        </div>
+        <div class="prose">
+          <h2>Stack</h2>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><th>Backend</th><td>Python · FastAPI</td></tr>
+                <tr><th>Interface</th><td>Jinja2 · HTMX · Bootstrap 5</td></tr>
+                <tr><th>Data</th><td>PostgreSQL · SQLAlchemy · Alembic</td></tr>
+                <tr><th>ARCA</th><td>SOAP with zeep · CMS signing</td></tr>
+                <tr><th>Excel</th><td>openpyxl · pandas</td></tr>
+                <tr><th>PDF</th><td>Playwright (Chromium) · QR code</td></tr>
+                <tr><th>Quality</th><td>pytest · pre-commit · gitleaks</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h2 style="margin-top:1.4em">My role</h2>
+          <p>I designed the flow, the rules and the controls from how billing works at the practice. I wrote the code with AI assistance (Claude Code), reviewing and testing every part.</p>
+          <p class="note">The code is private because the app handles third parties' health data. I'm happy to walk through it in an interview.</p>
+        </div>
+      </div>
+      <div class="actions" style="margin-top:28px">
+        <a class="btn" href="pick-up-orders.html">← Previous project: pick-up orders</a>
+        <a class="btn primary" href="../#contact">Contact</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Juan Tomas Camellini</span>
+    <span><a href="mailto:juantomascamellini@gmail.com">juantomascamellini@gmail.com</a> · <a href="https://www.linkedin.com/in/juancamellini">LinkedIn</a></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facturación electrónica con ARCA · Juan Tomas Camellini</title>
+<meta name="description" content="De una planilla mensual a unas 100 facturas electrónicas con CAE de ARCA, con sus PDF y un control propio que nunca emite un duplicado.">
+<meta property="og:title" content="Facturación electrónica automatizada con ARCA">
+<meta property="og:description" content="Limpieza de datos, validaciones y conciliación contra ARCA: unas 100 facturas por mes con CAE, PDF y control de duplicados.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://juancamellini.github.io/proyectos/facturacion.html">
+<meta property="og:image" content="https://juancamellini.github.io/assets/img/facturacion/lote-emitido.png">
+<link rel="alternate" hreflang="en" href="https://juancamellini.github.io/en/projects/invoicing.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Ir al contenido</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">Juan Camellini <span>· datos y operaciones</span></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="../#experiencia">Experiencia</a>
+      <a href="../#proyectos" aria-current="page">Proyectos</a>
+      <a href="../#contacto">Contacto</a>
+    </nav>
+    <a class="lang" href="../en/projects/invoicing.html" hreflang="en" lang="en">EN</a>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <div class="page-head">
+    <div class="wrap">
+      <a class="back" href="../#proyectos">← Todos los proyectos</a>
+      <p class="eyebrow">Proyecto · Automatización y datos</p>
+      <h1>Facturación electrónica con ARCA</h1>
+      <p class="lead">De una planilla mensual a unas 100 facturas electrónicas con CAE de ARCA (ex AFIP), con sus PDF y un control propio que nunca emite una factura dos veces. La hice para el consultorio de salud donde facturo.</p>
+      <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Web services de ARCA (SOAP)</li><li>Playwright</li><li>pytest · 730 tests</li></ul>
+      <!-- TODO(Juan): actualizar el estado cuando la obra social apruebe la factura y después del lote de noviembre. -->
+      <p style="margin-top:18px"><span class="badge ok">Estado al 23/10/2026</span> <span class="muted small">Primera factura real emitida desde la app. Falta usarla con un mes completo en producción.</span></p>
+    </div>
+  </div>
+
+  <section class="tight">
+    <div class="wrap">
+      <figure>
+        <video controls preload="metadata" poster="../assets/img/facturacion/lote-emitido.png" width="1280" height="720">
+          <source src="../assets/video/facturacion-demo.mp4" type="video/mp4">
+          <a href="../assets/video/facturacion-demo.mp4">Descargar el video (MP4, 3 min)</a>
+        </video>
+        <figcaption>Recorrido de 3 minutos por un mes completo: padrón, valor de la sesión, planilla con un error, validación, emisión del lote, PDF, historial y nota de crédito. Usa solo datos ficticios y un ARCA simulado, en el modo de prueba de la app.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid two">
+        <div class="prose">
+          <h2>El problema</h2>
+          <p>Un consultorio de kinesiología factura cada mes sus prestaciones a obras sociales: <strong>unas 100 facturas por mes, cargadas a mano una por una</strong> en el portal de ARCA, copiando los datos de un Excel. Eso ocupaba <strong>los primeros diez días de cada mes</strong>.</p>
+          <p>La planilla había crecido sin reglas:</p>
+          <ul>
+            <li><strong>15 formas distintas</strong> de escribir 6 condiciones frente al IVA, y <strong>42</strong> de escribir 3 prestaciones;</li>
+            <li>CUIT incompletos, con un dígito de más o con el DNI del paciente;</li>
+            <li>erratas que llegaban a las facturas (<code>SE3SIONES</code>, <code>HIDROTERPIA</code>).</li>
+          </ul>
+          <p>Y en este dominio el error sale caro: una factura equivocada <strong>ya tiene CAE</strong> y no se borra, se anula con una nota de crédito. Si una factura sale dos veces, la obra social puede rechazar el mes entero.</p>
+        </div>
+        <div class="prose">
+          <h2>Qué demuestra para un rol de datos y operaciones</h2>
+          <ul>
+            <li><strong>Limpieza de datos sucios:</strong> 15 formas de escribir 6 condiciones de IVA y 42 de escribir 3 prestaciones, normalizadas en un padrón que se carga una sola vez.</li>
+            <li><strong>Reglas de validación</strong> fila por fila antes de emitir, y <strong>control de duplicados</strong> garantizado por la base de datos.</li>
+            <li><strong>Conciliación contra una fuente externa:</strong> si algo falla en el medio, la app le pregunta a ARCA qué quedó emitido antes de reintentar.</li>
+            <li><strong>SQL y PostgreSQL:</strong> índices únicos parciales, triggers y una tabla de auditoría.</li>
+            <li><strong>Documentación del proceso:</strong> cada regla de ARCA se verificó contra la documentación oficial antes de programarla.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Números</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Indicador</th><th>Valor</th><th>De dónde sale</th></tr></thead>
+          <tbody>
+            <tr><td>Carga a mano antes de la app</td><td>Los primeros 10 días de cada mes</td><td>Medido en el consultorio</td></tr>
+            <tr><td>Facturas por mes</td><td>Unas 100</td><td>Medido en el consultorio</td></tr>
+            <tr><td>Importes</td><td>101 facturas hechas a mano reproducidas al centavo, incluidas 21 con IVA al 10,5 %</td><td>Validación de la app contra meses ya facturados</td></tr>
+            <tr><td>Tests automáticos</td><td>730, con PostgreSQL real en un esquema temporal</td><td>Suite de la app</td></tr>
+            <!-- TODO(Juan): completar con el tiempo real después del lote de noviembre de 2026. -->
+            <tr><td>Tiempo del proceso con la app</td><td><span class="badge warn">Se mide en noviembre de 2026</span></td><td>Primer mes completo en producción</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>El flujo de cada mes</h2>
+      <p class="lead">Una aplicación web interna que corre en las dos PCs del consultorio y comparte la base de datos. El mes entero cabe en seis pasos.</p>
+      <div class="table-wrap">
+        <table class="first-col-nowrap">
+          <thead><tr><th>Paso</th><th>Qué hace la app</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. Padrón</strong></td><td>Pacientes, obras sociales y afiliaciones se cargan una sola vez. La factura va a la obra social, y el paciente figura en el texto del ítem.</td></tr>
+            <tr><td><strong>2. Valor del mes</strong></td><td>Un único valor de sesión por resolución, para todas las obras sociales. Nunca se carga por fila.</td></tr>
+            <tr><td><strong>3. Planilla</strong></td><td>La app arma la planilla del mes con las sesiones pactadas. La persona solo ajusta sesiones u omite filas.</td></tr>
+            <tr><td><strong>4. Revisión</strong></td><td>Valida todo y marca los errores fila por fila. Calcula la letra (A o B) según el IVA del receptor, los importes y el texto de cada factura.</td></tr>
+            <tr><td><strong>5. Emisión</strong></td><td>De a una o el lote entero, contra el web service oficial de ARCA, con el avance en vivo.</td></tr>
+            <tr><td><strong>6. Control</strong></td><td>El PDF de cada factura queda en su carpeta. El historial descarga un Excel de control y un ZIP con los PDF, y desde ahí se hacen las notas de crédito.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gallery">
+        <figure>
+          <a href="../assets/img/facturacion/planilla-con-error.png"><img src="../assets/img/facturacion/planilla-con-error.png" alt="Planilla del mes rechazada, con la fila del error marcada en rojo" width="1280" height="720" loading="lazy"></a>
+          <figcaption>Una planilla con un error se rechaza entera y la fila queda marcada. No se guarda nada.</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/facturacion/lote-validado.png"><img src="../assets/img/facturacion/lote-validado.png" alt="Lote validado con letra, importe y estado de cada factura" width="1280" height="720" loading="lazy"></a>
+          <figcaption>Corregida la planilla, el lote queda validado: letra, importe y texto de cada factura.</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/facturacion/confirmar-factura.png"><img src="../assets/img/facturacion/confirmar-factura.png" alt="Pantalla de confirmación con todo lo que se envía a ARCA" width="1280" height="720" loading="lazy"></a>
+          <figcaption>Antes de emitir, la pantalla muestra exactamente lo que va a ARCA.</figcaption>
+        </figure>
+        <figure>
+          <a href="../assets/img/facturacion/pdf-factura.png"><img src="../assets/img/facturacion/pdf-factura.png" alt="PDF de una factura B generado por la app" width="1280" height="720" loading="lazy"></a>
+          <figcaption>ARCA solo devuelve el CAE: el PDF lo genera la app, con el diseño del de ARCA y su código QR.</figcaption>
+        </figure>
+        <figure class="wide">
+          <a href="../assets/img/facturacion/historial.png"><img src="../assets/img/facturacion/historial.png" alt="Historial de facturas con filtros, descarga en Excel y ZIP de PDF" width="1280" height="720" loading="lazy"></a>
+          <figcaption>Historial: búsqueda, Excel de control, ZIP con los PDF y notas de crédito.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Decisiones técnicas</h2>
+      <div class="grid two">
+        <article class="card">
+          <h3>Integración oficial, no un robot sobre el portal</h3>
+          <p>Se emite con los web services oficiales de ARCA: WSAA para la autenticación, con firma CMS y certificado X.509, y WSFEv1 para la facturación. Automatizar el portal con un navegador se descartó: un clic en el lugar equivocado deja un comprobante fiscal que no se puede deshacer.</p>
+        </article>
+        <article class="card">
+          <h3>“Nunca dos veces” lo garantiza la base de datos</h3>
+          <p>Cada factura tiene una clave de idempotencia (afiliación, mes, prestación y tipo de comprobante) protegida por índices únicos parciales de PostgreSQL. Dos facturas para lo mismo son imposibles, aunque emitan las dos PCs a la vez. Los triggers impiden modificar una factura emitida.</p>
+        </article>
+        <article class="card">
+          <h3>Una máquina de estados que supone que todo puede fallar</h3>
+          <p>La factura pasa a “enviada sin confirmar” antes de llamar a ARCA. Si se corta la luz o internet, al volver la app no reintenta a ciegas: consulta a ARCA si el comprobante existe y recién ahí lo da por emitido o lo reenvía.</p>
+        </article>
+        <article class="card">
+          <h3>Dinero en Decimal, nunca en float</h3>
+          <p>Los importes se calculan con dos decimales y redondeo hacia arriba en la mitad. Se validó contra 101 facturas hechas a mano y dio idéntico al centavo.</p>
+        </article>
+        <article class="card">
+          <h3>Datos de salud tratados como tales</h3>
+          <p>La app maneja datos de salud de terceros (Ley 25.326): el repositorio nunca tiene datos reales, hay controles antes de cada commit, un certificado por PC con su clave protegida, y la app solo escucha en la propia computadora.</p>
+        </article>
+        <article class="card">
+          <h3>Probar que los tests detectan lo que deben</h3>
+          <p>730 tests con datos sintéticos. Además, cada protección importante se rompió a propósito, una por vez, para comprobar que algún test falla. Así aparecieron tests que pasaban por la razón equivocada.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid two">
+        <div class="prose">
+          <h2>Resultados</h2>
+          <ul>
+            <li>Las etapas de base, padrón, validación y cálculo están aprobadas contra datos reales: los importes coinciden al centavo con los meses facturados a mano.</li>
+            <li><strong>Primera factura real emitida desde la app.</strong> Su QR lleva a la página de comprobación de ARCA y da “autorizado”. El portal de la obra social permitió cargar el PDF, y falta su aprobación.</li>
+            <li>Las notas de crédito (totales, parciales y de varias facturas a la vez) se probaron en el entorno de pruebas de ARCA.</li>
+            <li>Lo que ocupaba diez días por mes pasa a ser: subir la planilla, revisar y emitir.</li>
+          </ul>
+          <h2 style="margin-top:1.4em">Lo que sigue</h2>
+          <p>Primero, un mes completo en producción. Después, ofrecerla como servicio a otros prestadores de salud que facturan a obras sociales con el mismo esquema: separar los datos de cada cliente, usar la delegación oficial de ARCA, soportar Factura C y cubrir lo legal del tratamiento de datos de salud.</p>
+        </div>
+        <div class="prose">
+          <h2>Stack</h2>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><th>Backend</th><td>Python · FastAPI</td></tr>
+                <tr><th>Interfaz</th><td>Jinja2 · HTMX · Bootstrap 5</td></tr>
+                <tr><th>Datos</th><td>PostgreSQL · SQLAlchemy · Alembic</td></tr>
+                <tr><th>ARCA</th><td>SOAP con zeep · firma CMS</td></tr>
+                <tr><th>Excel</th><td>openpyxl · pandas</td></tr>
+                <tr><th>PDF</th><td>Playwright (Chromium) · código QR</td></tr>
+                <tr><th>Calidad</th><td>pytest · pre-commit · gitleaks</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h2 style="margin-top:1.4em">Mi rol</h2>
+          <p>Diseñé el flujo, las reglas y los controles a partir de cómo se factura en el consultorio. Escribí el código con asistencia de IA (Claude Code), revisando y probando cada parte.</p>
+          <p class="note">El código es privado porque la app maneja datos de salud de terceros. Lo puedo mostrar en una entrevista.</p>
+        </div>
+      </div>
+      <div class="actions" style="margin-top:28px">
+        <a class="btn" href="ordenes-retiro.html">← Proyecto anterior: órdenes de retiro</a>
+        <a class="btn primary" href="../#contacto">Contacto</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Juan Tomas Camellini</span>
+    <span><a href="mailto:juantomascamellini@gmail.com">juantomascamellini@gmail.com</a> · <a href="https://www.linkedin.com/in/juancamellini">LinkedIn</a></span>
+  </div>
+</footer>
+</body>
+</html>
