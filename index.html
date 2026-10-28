@@ -13,6 +13,7 @@
 <link rel="alternate" hreflang="es" href="https://juancamellini.github.io/">
 <link rel="alternate" hreflang="en" href="https://juancamellini.github.io/en/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/Urbanist-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
@@ -20,14 +21,16 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="./">Juan Camellini <span>· datos y operaciones</span></a>
+    <a class="brand" href="./">Juan Camellini</a>
     <nav class="nav" aria-label="Secciones">
       <a href="#experiencia">Experiencia</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#trayectoria">Trayectoria</a>
-      <a href="#contacto">Contacto</a>
     </nav>
-    <a class="lang" href="en/" hreflang="en" lang="en">EN</a>
+    <div class="head-end">
+      <a class="lang" href="en/" hreflang="en" lang="en">EN</a>
+      <a class="cta" href="#contacto">Contacto</a>
+    </div>
   </div>
 </header>
 
@@ -35,195 +38,195 @@
 
   <section class="hero">
     <div class="wrap">
-      <p class="eyebrow">Portfolio</p>
-      <h1>Juan Tomas Camellini</h1>
-      <p class="role">Analista de datos de operaciones y logística</p>
-      <p class="lead">Construyo las herramientas de datos que usan los equipos de operaciones todos los días: alertas por SLA a proveedores, trazabilidad de entregas, tableros de Power BI y automatización de procesos administrativos.</p>
-      <ul class="meta-line">
-        <li>SQL · Python (pandas) · Power BI (DAX) · Power Automate</li>
-        <li>Buenos Aires (UTC-3) · disponible remoto</li>
-        <li>Contractor o relación de dependencia</li>
-      </ul>
-      <div class="actions">
-        <a class="btn primary" href="#proyectos">Ver proyectos</a>
-        <a class="btn" href="assets/cv/Juan_Camellini_CV_ES.pdf" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-          Descargar CV
-        </a>
-        <a class="btn" href="https://www.linkedin.com/in/juancamellini">LinkedIn</a>
-        <a class="btn" href="https://github.com/JuanCamellini">GitHub</a>
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-name">Juan Tomas<br>Camellini</h1>
+          <p class="hero-role">Analista de datos de operaciones y logística</p>
+          <p class="hero-text">Construyo las herramientas de datos que usan los equipos de operaciones todos los días: alertas por SLA, trazabilidad de entregas, tableros de Power BI y automatización de procesos administrativos.</p>
+          <ul class="hero-meta">
+            <li>Buenos Aires · UTC-3</li>
+            <li>Remoto · contractor o relación de dependencia</li>
+            <li>SQL · Python · Power BI · Power Automate</li>
+          </ul>
+          <ul class="links">
+            <li><a class="go" href="#proyectos">Ver proyectos →</a></li>
+            <li><a href="assets/cv/Juan_Camellini_CV_ES.pdf" download>CV ↓</a></li>
+            <li><a href="https://www.linkedin.com/in/juancamellini">LinkedIn ↗</a></li>
+            <li><a href="https://github.com/JuanCamellini">GitHub ↗</a></li>
+          </ul>
+        </div>
+        <img class="portrait" src="assets/img/juan-camellini.jpg" alt="Foto de Juan Tomas Camellini" width="472" height="520">
       </div>
 
-      <div class="stats">
-        <div class="stat"><b>~2.500</b><span>remitos por mes controlados por la plataforma de trazabilidad que hice</span></div>
-        <div class="stat"><b>~7 por día</b><span>alertas a proveedores con las órdenes de retiro que vencen su SLA</span></div>
-        <div class="stat"><b>101 de 101</b><span>facturas reproducidas al centavo por mi app de facturación electrónica</span></div>
+      <div class="facts">
+        <div class="fact"><b>~2.500</b><span>remitos por mes controlados por la plataforma de trazabilidad que hice</span></div>
+        <div class="fact"><b>~7/día</b><span>alertas a proveedores con las órdenes de retiro que vencen su SLA</span></div>
+        <div class="fact"><b>101/101</b><span>facturas reproducidas al centavo por mi app de facturación electrónica</span></div>
       </div>
     </div>
   </section>
 
   <section id="experiencia">
-    <div class="wrap">
-      <p class="eyebrow">Experiencia en logística</p>
-      <div class="job-head">
-        <h3>Penguin Random House · Analista de Transporte y Logística</h3>
-        <p>Abril 2026 – actualidad</p>
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="mono">01</span>
+        <h2>Experiencia</h2>
+        <p>Lo que construí en mi trabajo actual, además de la gestión diaria de retiros, entregas y documentación en SAP.</p>
       </div>
-      <p class="lead">Además de la gestión diaria de retiros, entregas y documentación en SAP, automaticé buena parte del control del área.</p>
-
-      <div class="grid two">
-        <article class="card">
-          <h3>Alertas diarias por SLA a los proveedores</h3>
-          <p>Cada día se detectan las órdenes de retiro que alcanzan el plazo acordado con su proveedor, y a cada uno le llega un mail solo con sus órdenes nuevas: unos <strong>7 mails por día</strong>. Antes, el único aviso era la lista semanal de todas las pendientes, que sale los miércoles y se sigue enviando.</p>
-          <p class="result">El proveedor se entera el mismo día en que vence el plazo, no hasta una semana después.</p>
-          <ul class="tags"><li>Power Automate</li><li>Power BI</li><li>Excel</li></ul>
-        </article>
-
-        <article class="card">
-          <h3>Tablero de retiros en Power BI</h3>
-          <p>Pendientes, críticas según el SLA de cada proveedor, antigüedad, motivos de depuración y detalle por cliente. Lo usa el área operativa y se presentó a la gerencia comercial.</p>
-          <p class="result">Una réplica con datos ficticios está en <a href="proyectos/ordenes-retiro.html">Proyectos</a>.</p>
-          <ul class="tags"><li>Power BI</li><li>DAX</li><li>Power Query</li></ul>
-        </article>
-
-        <article class="card">
-          <h3>Plataforma de trazabilidad de entregas</h3>
-          <p>En producción y en uso diario. Reemplazó el seguimiento por mail con controles que antes no existían entre el operador logístico (3PL), los transportistas y la empresa.</p>
-          <p class="result">Controla unos 2.500 remitos por mes.</p>
-          <ul class="tags"><li>Python</li><li>pandas</li><li>SQL</li><li>Power BI</li><li>Power Automate</li><li>Render</li></ul>
-        </article>
-
-        <article class="card">
-          <h3>Documentación y control interno de retiros</h3>
-          <p>Automaticé la actualización de la documentación y la escritura del Excel de órdenes de retiro, con controles internos que ordenan la gestión y acortan sus tiempos.</p>
-          <ul class="tags"><li>Excel</li><li>Power Automate</li><li>SAP</li></ul>
-        </article>
-
-        <article class="card span-2">
-          <h3>Órdenes de retiro para Market Self <span class="badge warn">En desarrollo</span></h3>
-          <p>Un formulario genera la orden de retiro, se la envía al proveedor que corresponde y escribe los Excel internos, para agilizar la gestión administrativa de Market Self, una empresa que se sumó al grupo.</p>
-          <p class="result">Lo termino en noviembre de 2026.</p>
-          <ul class="tags"><li>Formularios</li><li>Automatización de mails</li><li>Excel</li></ul>
-        </article>
+      <div>
+        <div class="job-line">
+          <h3>Penguin Random House</h3>
+          <span class="mono muted">Analista de Transporte y Logística · abr 2026 – hoy</span>
+        </div>
+        <ul class="rows">
+          <li class="row">
+            <div><h3>Alertas diarias por SLA a los proveedores</h3><span class="mono">Power Automate · Power BI · Excel</span></div>
+            <div>
+              <p>Cada día se detectan las órdenes de retiro que alcanzan el plazo acordado con su proveedor, y a cada uno le llega un mail solo con sus órdenes nuevas: unos 7 por día. Antes, el único aviso era la lista semanal de todas las pendientes, que sale los miércoles y se sigue enviando.</p>
+              <p class="result">El proveedor se entera el mismo día en que vence el plazo, no hasta una semana después.</p>
+            </div>
+          </li>
+          <li class="row">
+            <div><h3>Tablero de retiros en Power BI</h3><span class="mono">Power BI · DAX · Power Query</span></div>
+            <div>
+              <p>Pendientes, críticas según el SLA de cada proveedor, antigüedad, motivos de depuración y detalle por cliente. Lo usa el área operativa y se presentó a la gerencia comercial.</p>
+              <p class="result">Una réplica con datos ficticios está en <a href="proyectos/ordenes-retiro.html">Proyectos</a>.</p>
+            </div>
+          </li>
+          <li class="row">
+            <div><h3>Plataforma de trazabilidad de entregas</h3><span class="mono">Python · pandas · SQL · Power BI · Power Automate · Render</span></div>
+            <div>
+              <p>En producción y en uso diario. Reemplazó el seguimiento por mail con controles que antes no existían entre el operador logístico (3PL), los transportistas y la empresa.</p>
+              <p class="result">Controla unos 2.500 remitos por mes.</p>
+            </div>
+          </li>
+          <li class="row">
+            <div><h3>Documentación y control interno de retiros</h3><span class="mono">Excel · Power Automate · SAP</span></div>
+            <div>
+              <p>Automaticé la actualización de la documentación y la escritura del Excel de órdenes de retiro, con controles internos que ordenan la gestión y acortan sus tiempos.</p>
+            </div>
+          </li>
+          <li class="row">
+            <div><h3>Órdenes de retiro para Market Self <span class="tag">En desarrollo</span></h3><span class="mono">Formularios · mails automáticos · Excel</span></div>
+            <div>
+              <p>Un formulario genera la orden de retiro, se la envía al proveedor que corresponde y escribe los Excel internos, para agilizar la gestión administrativa de Market Self, una empresa que se sumó al grupo.</p>
+              <p class="result">Lo termino en noviembre de 2026.</p>
+            </div>
+          </li>
+        </ul>
+        <p class="note">Estos trabajos usan información de la empresa: por eso no hay capturas, código ni datos reales. El proyecto de órdenes de retiro reproduce el tablero con datos inventados.</p>
       </div>
-
-      <p class="note">Estos trabajos usan información de la empresa: por eso acá no hay capturas, código ni datos reales. El proyecto de órdenes de retiro reproduce el tablero con datos inventados.</p>
     </div>
   </section>
 
   <section id="proyectos">
-    <div class="wrap">
-      <p class="eyebrow">Proyectos</p>
-      <h2>Proyectos que se pueden ver por dentro</h2>
-      <p class="lead">Dos proyectos completos, con datos ficticios, que muestran cómo trabajo de punta a punta.</p>
-
-      <article class="card project">
-        <a class="shot" href="proyectos/ordenes-retiro.html" aria-label="Ver el proyecto de órdenes de retiro">
-          <img src="assets/img/retiros/01_tablero_principal.png" alt="Tablero de Power BI de órdenes de retiro, con filtros, tarjetas de KPIs y la tabla de detalle" width="1430" height="682" loading="lazy">
-        </a>
-        <div class="body">
-          <p class="eyebrow">Logística · Power BI</p>
-          <h3>Control de órdenes de retiro</h3>
-          <p>Reglas de SLA en Python, alerta diaria por proveedor, KPIs en SQL sobre DuckDB y un tablero de Power BI con buscador y detalle por cliente. Replica un tablero real con datos inventados.</p>
-          <ul class="tags"><li>Python</li><li>pandas</li><li>DuckDB / SQL</li><li>Power BI</li><li>DAX</li><li>60 tests</li></ul>
-          <div class="actions">
-            <a class="btn primary" href="proyectos/ordenes-retiro.html">Ver el proyecto</a>
-            <a class="btn" href="https://github.com/JuanCamellini/logistics-control-tower">Código</a>
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="mono">02</span>
+        <h2>Proyectos</h2>
+        <p>Dos proyectos completos, con datos ficticios, que se pueden ver por dentro.</p>
+      </div>
+      <div>
+        <article class="proj">
+          <a class="shot" href="proyectos/ordenes-retiro.html" aria-label="Ver el proyecto de órdenes de retiro">
+            <img src="assets/img/retiros/01_tablero_principal.png" alt="Tablero de Power BI de órdenes de retiro, con filtros, tarjetas de KPIs y la tabla de detalle" width="1430" height="682" loading="lazy">
+          </a>
+          <div>
+            <h3>Control de órdenes de retiro</h3>
+            <p>Reglas de SLA en Python, alerta diaria por proveedor, KPIs en SQL sobre DuckDB y un tablero de Power BI con buscador y detalle por cliente. Replica un tablero real con datos inventados.</p>
+            <span class="mono">Python · pandas · DuckDB · SQL · Power BI · DAX · 60 tests</span>
+            <ul class="links">
+              <li><a class="go" href="proyectos/ordenes-retiro.html">Ver proyecto →</a></li>
+              <li><a href="https://github.com/JuanCamellini/logistics-control-tower">Código ↗</a></li>
+            </ul>
           </div>
-        </div>
-      </article>
-
-      <article class="card project">
-        <a class="shot" href="proyectos/facturacion.html" aria-label="Ver el proyecto de facturación electrónica">
-          <img src="assets/img/facturacion/lote-emitido.png" alt="App de facturación con un lote del mes emitido: cada factura con número, CAE y PDF" width="1280" height="720" loading="lazy">
-        </a>
-        <div class="body">
-          <p class="eyebrow">Automatización · Datos</p>
-          <h3>Facturación electrónica con ARCA</h3>
-          <p>De una planilla mensual a unas 100 facturas electrónicas con CAE, sus PDF y un control propio que impide emitir duplicados. Limpieza de datos, validaciones y conciliación contra ARCA.</p>
-          <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Web services de ARCA</li><li>730 tests</li></ul>
-          <div class="actions">
-            <a class="btn primary" href="proyectos/facturacion.html">Ver el proyecto y el video</a>
+        </article>
+        <article class="proj">
+          <a class="shot" href="proyectos/facturacion.html" aria-label="Ver el proyecto de facturación electrónica">
+            <img src="assets/img/facturacion/lote-emitido.png" alt="App de facturación con un lote del mes emitido: cada factura con número, CAE y PDF" width="1280" height="720" loading="lazy">
+          </a>
+          <div>
+            <h3>Facturación electrónica con ARCA</h3>
+            <p>De una planilla mensual a unas 100 facturas electrónicas con CAE, sus PDF y un control propio que impide emitir duplicados. Limpieza de datos, validaciones y conciliación contra ARCA.</p>
+            <span class="mono">Python · FastAPI · PostgreSQL · web services de ARCA · 730 tests</span>
+            <ul class="links">
+              <li><a class="go" href="proyectos/facturacion.html">Ver proyecto y video →</a></li>
+            </ul>
           </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="como-trabajo">
-    <div class="wrap">
-      <p class="eyebrow">Cómo trabajo</p>
-      <h2>Primero el proceso, después el código</h2>
-      <div class="grid three">
-        <article class="card">
-          <h3>Reglas claras antes de automatizar</h3>
-          <p>Defino con quien opera los estados, los plazos y las excepciones. Recién después automatizo, y cada regla queda escrita.</p>
-        </article>
-        <article class="card">
-          <h3>Un solo número para todos</h3>
-          <p>Las reglas viven en un solo lugar y tienen tests, así el tablero, las alertas y los reportes nunca se contradicen.</p>
-        </article>
-        <article class="card">
-          <h3>IA como herramienta</h3>
-          <p>Diseño el flujo, las reglas y los controles; escribo el código con asistencia de IA (Claude Code), revisando y probando cada parte.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="trayectoria">
-    <div class="wrap">
-      <p class="eyebrow">Trayectoria</p>
-      <h2>Del pedido a la factura</h2>
-      <p class="lead">Trabajé en distintos tramos del proceso, así que lo conozco completo: pedido, remito, entrega, conforme, facturación y reclamo.</p>
-      <ol class="timeline">
-        <li>
-          <span class="when">2026 – actualidad</span>
-          <div><h3>Analista de Transporte y Logística · Penguin Random House</h3><p>Retiros, entregas, remitos y conformes en SAP; relación con el 3PL y los transportistas; automatización y tableros del área.</p></div>
-        </li>
-        <li>
-          <span class="when">2022 – actualidad</span>
-          <div><h3>Administrativo de Facturación (part-time) · Consultorio de Salud Ayres</h3><p>Unos 200 pacientes por mes facturados a unas 35 obras sociales en ARCA. De ahí salió la app de facturación.</p></div>
-        </li>
-        <li>
-          <span class="when">2025 – ene 2026</span>
-          <div><h3>Titular y Responsable de Operaciones · Distribuidora de bebidas</h3><p>Toda la operación, solo: unos 100 clientes y 200 pedidos por semana, stock, rutas de reparto y facturación.</p></div>
-        </li>
-        <li>
-          <span class="when">2023 – feb 2025</span>
-          <div><h3>Administrativo de Operaciones y Control Documental · Autobuses S.A.</h3><p>Documentación técnica y administrativa de una flota de más de 120 colectivos y reportes de estado a gerencia.</p></div>
-        </li>
+  <section id="como-trabajo">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="mono">03</span>
+        <h2>Cómo trabajo</h2>
+      </div>
+      <ol class="numbered">
+        <li><div><h3>Reglas claras antes de automatizar</h3><p>Defino con quien opera los estados, los plazos y las excepciones. Recién después automatizo, y cada regla queda escrita.</p></div></li>
+        <li><div><h3>Un solo número para todos</h3><p>Las reglas viven en un solo lugar y tienen tests, así el tablero, las alertas y los reportes nunca se contradicen.</p></div></li>
+        <li><div><h3>IA como herramienta</h3><p>Diseño el flujo, las reglas y los controles; escribo el código con asistencia de IA (Claude Code), revisando y probando cada parte.</p></div></li>
       </ol>
+    </div>
+  </section>
 
-      <div class="grid two" style="margin-top:32px">
-        <div>
-          <h3>Herramientas</h3>
-          <ul class="skills">
-            <li>SQL (PostgreSQL)</li><li>Python (pandas)</li><li>Power BI (DAX, Power Query)</li><li>Power Automate</li>
-            <li>Excel avanzado</li><li>SAP (circuito logístico)</li><li>DuckDB</li><li>FastAPI</li><li>Git</li>
-          </ul>
+  <section id="trayectoria">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="mono">04</span>
+        <h2>Trayectoria</h2>
+        <p>Del pedido a la factura: trabajé en cada tramo del proceso.</p>
+      </div>
+      <div>
+        <div class="years">
+          <span class="mono">2026 – hoy</span>
+          <div><h3>Analista de Transporte y Logística · Penguin Random House</h3><p>Retiros, entregas, remitos y conformes en SAP; relación con el 3PL y los transportistas; automatización y tableros del área.</p></div>
         </div>
-        <div>
-          <h3>Formación e idiomas</h3>
-          <p class="muted small" style="margin-bottom:.4em">Ingeniería en Sistemas Informáticos, Universidad Abierta Interamericana (3 años cursados).<br>
-          SQL y Power BI para Análisis de Datos (Platzi) · Python y Pandas para Análisis de Datos (Coderhouse).</p>
-          <p class="muted small">Español nativo · Inglés B2 (lectura y comprensión fluidas).</p>
+        <div class="years">
+          <span class="mono">2022 – hoy</span>
+          <div><h3>Administrativo de Facturación (part-time) · Consultorio de Salud Ayres</h3><p>Unos 200 pacientes por mes facturados a unas 35 obras sociales en ARCA. De ahí salió la app de facturación.</p></div>
+        </div>
+        <div class="years">
+          <span class="mono">2025 – ene 2026</span>
+          <div><h3>Titular y Responsable de Operaciones · Distribuidora de bebidas</h3><p>Toda la operación, solo: unos 100 clientes y 200 pedidos por semana, stock, rutas de reparto y facturación.</p></div>
+        </div>
+        <div class="years">
+          <span class="mono">2023 – feb 2025</span>
+          <div><h3>Administrativo de Operaciones y Control Documental · Autobuses S.A.</h3><p>Documentación técnica y administrativa de una flota de más de 120 colectivos y reportes de estado a gerencia.</p></div>
+        </div>
+
+        <div class="grid two" style="margin-top:44px">
+          <div>
+            <h3>Herramientas</h3>
+            <p class="mono muted">SQL (PostgreSQL) · Python (pandas) · Power BI (DAX, Power Query) · Power Automate · Excel avanzado · SAP · DuckDB · FastAPI · Git</p>
+          </div>
+          <div>
+            <h3>Formación e idiomas</h3>
+            <p class="muted small">Ingeniería en Sistemas Informáticos, Universidad Abierta Interamericana (3 años cursados). SQL y Power BI para Análisis de Datos (Platzi). Python y Pandas para Análisis de Datos (Coderhouse).</p>
+            <p class="muted small">Español nativo · inglés B2 (lectura y comprensión fluidas).</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section id="contacto">
-    <div class="wrap">
-      <p class="eyebrow">Contacto</p>
-      <h2>¿Hablamos?</h2>
-      <p class="lead">Busco un puesto remoto de analista de datos, BI u operaciones, como contractor o en relación de dependencia.</p>
-      <div class="actions">
-        <a class="btn primary" href="mailto:juantomascamellini@gmail.com">juantomascamellini@gmail.com</a>
-        <a class="btn" href="https://www.linkedin.com/in/juancamellini">LinkedIn</a>
-        <a class="btn" href="https://github.com/JuanCamellini">GitHub</a>
-        <a class="btn" href="assets/cv/Juan_Camellini_CV_ES.pdf" download>CV en español</a>
-        <a class="btn" href="assets/cv/Juan_Camellini_CV_EN.pdf" download>CV in English</a>
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="mono">05</span>
+        <h2>Contacto</h2>
+        <p>Busco un puesto remoto de analista de datos, BI u operaciones.</p>
+      </div>
+      <div>
+        <a class="contact-big" href="mailto:juantomascamellini@gmail.com">juantomascamellini@gmail.com</a>
+        <ul class="links">
+          <li><a href="https://www.linkedin.com/in/juancamellini">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/JuanCamellini">GitHub ↗</a></li>
+          <li><a href="assets/cv/Juan_Camellini_CV_ES.pdf" download>CV en español ↓</a></li>
+          <li><a href="assets/cv/Juan_Camellini_CV_EN.pdf" download lang="en">CV in English ↓</a></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -233,7 +236,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <span>© 2026 Juan Tomas Camellini</span>
-    <span>Los proyectos usan datos ficticios. Sitio hecho en HTML y CSS, sin cookies ni seguimiento.</span>
+    <span>Proyectos con datos ficticios · HTML y CSS, sin cookies ni seguimiento</span>
   </div>
 </footer>
 </body>

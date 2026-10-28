@@ -10,7 +10,8 @@ $patterns = Get-Content $patternsFile -Encoding UTF8 | Where-Object { $_.Trim() 
 # Only what git would publish: tracked files plus new files that are not ignored.
 $published = git -C $root ls-files --cached --others --exclude-standard
 if ($LASTEXITCODE -ne 0) { Write-Host "git ls-files failed: run this inside the repo"; exit 2 }
-$files = $published | Where-Object { $_ -match '\.(html|css|js|md|svg|txt|xml|json|ps1)$' -and $_ -ne "assets/fonts/OFL.txt" } |
+$files = $published | Where-Object { $_ -match '\.(html|css|js|md|svg|txt|xml|json|ps1)$' -and $_ -notlike "assets/fonts/OFL-*.txt" } |
+    Where-Object { Test-Path (Join-Path $root $_) } |   # tracked files deleted in the working tree
     ForEach-Object { Get-Item (Join-Path $root $_) }
 
 $hits = 0

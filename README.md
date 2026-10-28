@@ -14,7 +14,7 @@ index.html                    Spanish home page
 proyectos/                    Spanish project pages
 en/                           English home page and en/projects/
 assets/css/site.css           One stylesheet, light and dark (follows the system setting)
-assets/fonts/                 Poppins, self-hosted (SIL Open Font License, see OFL.txt)
+assets/fonts/                 Urbanist and JetBrains Mono, self-hosted (SIL Open Font License, see OFL-*.txt)
 assets/img/, assets/video/    Screenshots and the invoicing demo (H.264 MP4)
 assets/cv/                    Public CVs: no phone, email or address
 tools/check_privacy.ps1       Pre-publish check for private data and pending items

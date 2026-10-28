@@ -13,6 +13,7 @@
 <link rel="alternate" hreflang="es" href="https://juancamellini.github.io/">
 <link rel="alternate" hreflang="en" href="https://juancamellini.github.io/en/">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/Urbanist-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 </head>
 <body>
@@ -20,14 +21,16 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="./">Juan Camellini <span>· data &amp; operations</span></a>
+    <a class="brand" href="./">Juan Camellini</a>
     <nav class="nav" aria-label="Sections">
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#background">Background</a>
-      <a href="#contact">Contact</a>
     </nav>
-    <a class="lang" href="../" hreflang="es" lang="es">ES</a>
+    <div class="head-end">
+      <a class="lang" href="../" hreflang="es" lang="es">ES</a>
+      <a class="cta" href="#contact">Contact</a>
+    </div>
   </div>
 </header>
 
@@ -35,195 +38,195 @@
 
   <section class="hero">
     <div class="wrap">
-      <p class="eyebrow">Portfolio</p>
-      <h1>Juan Tomas Camellini</h1>
-      <p class="role">Data &amp; operations analyst · Logistics</p>
-      <p class="lead">I build the data tools that operations teams use every day: SLA alerts to carriers, delivery traceability, Power BI dashboards and automation of administrative processes.</p>
-      <ul class="meta-line">
-        <li>SQL · Python (pandas) · Power BI (DAX) · Power Automate</li>
-        <li>Buenos Aires (UTC-3) · open to remote</li>
-        <li>Full-time or contract</li>
-      </ul>
-      <div class="actions">
-        <a class="btn primary" href="#projects">See projects</a>
-        <a class="btn" href="../assets/cv/Juan_Camellini_CV_EN.pdf" download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-          Download resume
-        </a>
-        <a class="btn" href="https://www.linkedin.com/in/juancamellini">LinkedIn</a>
-        <a class="btn" href="https://github.com/JuanCamellini">GitHub</a>
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-name">Juan Tomas<br>Camellini</h1>
+          <p class="hero-role">Data &amp; operations analyst · Logistics</p>
+          <p class="hero-text">I build the data tools that operations teams use every day: SLA alerts to carriers, delivery traceability, Power BI dashboards and automation of administrative processes.</p>
+          <ul class="hero-meta">
+            <li>Buenos Aires · UTC-3</li>
+            <li>Remote · full-time or contract</li>
+            <li>SQL · Python · Power BI · Power Automate</li>
+          </ul>
+          <ul class="links">
+            <li><a class="go" href="#projects">See projects →</a></li>
+            <li><a href="../assets/cv/Juan_Camellini_CV_EN.pdf" download>Resume ↓</a></li>
+            <li><a href="https://www.linkedin.com/in/juancamellini">LinkedIn ↗</a></li>
+            <li><a href="https://github.com/JuanCamellini">GitHub ↗</a></li>
+          </ul>
+        </div>
+        <img class="portrait" src="../assets/img/juan-camellini.jpg" alt="Photo of Juan Tomas Camellini" width="472" height="520">
       </div>
 
-      <div class="stats">
-        <div class="stat"><b>~2,500</b><span>delivery notes a month tracked by the traceability platform I built</span></div>
-        <div class="stat"><b>~7 a day</b><span>alerts to carriers with the pick-up orders that hit their SLA</span></div>
-        <div class="stat"><b>101 of 101</b><span>invoices reproduced to the cent by my e-invoicing app</span></div>
+      <div class="facts">
+        <div class="fact"><b>~2,500</b><span>delivery notes a month tracked by the traceability platform I built</span></div>
+        <div class="fact"><b>~7/day</b><span>alerts to carriers with the pick-up orders that hit their SLA</span></div>
+        <div class="fact"><b>101/101</b><span>invoices reproduced to the cent by my e-invoicing app</span></div>
       </div>
     </div>
   </section>
 
   <section id="experience">
-    <div class="wrap">
-      <p class="eyebrow">Logistics experience</p>
-      <div class="job-head">
-        <h3>Penguin Random House · Transportation &amp; Logistics Analyst</h3>
-        <p>April 2026 – present</p>
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="mono">01</span>
+        <h2>Experience</h2>
+        <p>What I built in my current job, on top of the day-to-day work on pick-ups, deliveries and documents in SAP.</p>
       </div>
-      <p class="lead">Besides the day-to-day work on pick-ups, deliveries and documents in SAP, I automated much of the team's control work.</p>
-
-      <div class="grid two">
-        <article class="card">
-          <h3>Daily SLA alerts to carriers</h3>
-          <p>Every day, the pick-up orders that reach the deadline agreed with their carrier are flagged, and each carrier gets an email with only its new ones: <strong>about 7 emails a day</strong>. Before, the only notice was the weekly list of every pending order, sent on Wednesdays, which still goes out.</p>
-          <p class="result">Carriers hear about a missed deadline the same day, not up to a week later.</p>
-          <ul class="tags"><li>Power Automate</li><li>Power BI</li><li>Excel</li></ul>
-        </article>
-
-        <article class="card">
-          <h3>Pick-up orders dashboard in Power BI</h3>
-          <p>Pending orders, SLA-critical orders by carrier, ageing, purge reasons and a customer drill-through. Used across the operations area and presented to sales management.</p>
-          <p class="result">A replica on fictional data is under <a href="projects/pick-up-orders.html">Projects</a>.</p>
-          <ul class="tags"><li>Power BI</li><li>DAX</li><li>Power Query</li></ul>
-        </article>
-
-        <article class="card">
-          <h3>Delivery traceability platform</h3>
-          <p>In production and used daily. It replaced email follow-up with checks that did not exist before between the third-party logistics provider (3PL), the carriers and the company.</p>
-          <p class="result">Tracks about 2,500 delivery notes a month.</p>
-          <ul class="tags"><li>Python</li><li>pandas</li><li>SQL</li><li>Power BI</li><li>Power Automate</li><li>Render</li></ul>
-        </article>
-
-        <article class="card">
-          <h3>Pick-up documentation and internal control</h3>
-          <p>I automated the document updates and the writing of the pick-up orders Excel file, with internal checks that bring order to the process and shorten handling times.</p>
-          <ul class="tags"><li>Excel</li><li>Power Automate</li><li>SAP</li></ul>
-        </article>
-
-        <article class="card span-2">
-          <h3>Pick-up orders for Market Self <span class="badge warn">In progress</span></h3>
-          <p>A form creates the pick-up order, sends it to the right carrier and writes the internal Excel files, to speed up admin work for Market Self, a company that recently joined the group.</p>
-          <p class="result">I'm finishing it in November 2026.</p>
-          <ul class="tags"><li>Forms</li><li>Email automation</li><li>Excel</li></ul>
-        </article>
+      <div>
+        <div class="job-line">
+          <h3>Penguin Random House</h3>
+          <span class="mono muted">Transportation &amp; Logistics Analyst · Apr 2026 – present</span>
+        </div>
+        <ul class="rows">
+          <li class="row">
+            <div><h3>Daily SLA alerts to carriers</h3><span class="mono">Power Automate · Power BI · Excel</span></div>
+            <div>
+              <p>Every day, the pick-up orders that reach the deadline agreed with their carrier are flagged, and each carrier gets an email with only its new ones: about 7 a day. Before, the only notice was the weekly list of every pending order, sent on Wednesdays, which still goes out.</p>
+              <p class="result">Carriers hear about a missed deadline the same day, not up to a week later.</p>
+            </div>
+          </li>
+          <li class="row">
+            <div><h3>Pick-up orders dashboard in Power BI</h3><span class="mono">Power BI · DAX · Power Query</span></div>
+            <div>
+              <p>Pending orders, SLA-critical orders by carrier, ageing, purge reasons and a customer drill-through. Used across the operations area and presented to sales management.</p>
+              <p class="result">A replica on fictional data is under <a href="projects/pick-up-orders.html">Projects</a>.</p>
+            </div>
+          </li>
+          <li class="row">
+            <div><h3>Delivery traceability platform</h3><span class="mono">Python · pandas · SQL · Power BI · Power Automate · Render</span></div>
+            <div>
+              <p>In production and used daily. It replaced email follow-up with checks that did not exist before between the third-party logistics provider (3PL), the carriers and the company.</p>
+              <p class="result">Tracks about 2,500 delivery notes a month.</p>
+            </div>
+          </li>
+          <li class="row">
+            <div><h3>Pick-up documentation and internal control</h3><span class="mono">Excel · Power Automate · SAP</span></div>
+            <div>
+              <p>I automated the document updates and the writing of the pick-up orders Excel file, with internal checks that bring order to the process and shorten handling times.</p>
+            </div>
+          </li>
+          <li class="row">
+            <div><h3>Pick-up orders for Market Self <span class="tag">In progress</span></h3><span class="mono">Forms · automated emails · Excel</span></div>
+            <div>
+              <p>A form creates the pick-up order, sends it to the right carrier and writes the internal Excel files, to speed up admin work for Market Self, a company that recently joined the group.</p>
+              <p class="result">I'm finishing it in November 2026.</p>
+            </div>
+          </li>
+        </ul>
+        <p class="note">This work uses company information, so there are no screenshots, code or real data here. The pick-up orders project rebuilds the dashboard on invented data.</p>
       </div>
-
-      <p class="note">This work uses company information, so there are no screenshots, code or real data here. The pick-up orders project rebuilds the dashboard on invented data.</p>
     </div>
   </section>
 
   <section id="projects">
-    <div class="wrap">
-      <p class="eyebrow">Projects</p>
-      <h2>Projects you can look inside</h2>
-      <p class="lead">Two complete projects on fictional data that show how I work, end to end.</p>
-
-      <article class="card project">
-        <a class="shot" href="projects/pick-up-orders.html" aria-label="See the pick-up orders project">
-          <img src="../assets/img/retiros/01_tablero_principal.png" alt="Power BI pick-up orders dashboard with filters, KPI cards and the order detail table" width="1430" height="682" loading="lazy">
-        </a>
-        <div class="body">
-          <p class="eyebrow">Logistics · Power BI</p>
-          <h3>Pick-up orders control</h3>
-          <p>SLA rules in Python, a daily alert per carrier, SQL KPIs on DuckDB and a Power BI dashboard with search and a customer drill-through. A replica of a real dashboard, on invented data.</p>
-          <ul class="tags"><li>Python</li><li>pandas</li><li>DuckDB / SQL</li><li>Power BI</li><li>DAX</li><li>60 tests</li></ul>
-          <div class="actions">
-            <a class="btn primary" href="projects/pick-up-orders.html">See the project</a>
-            <a class="btn" href="https://github.com/JuanCamellini/logistics-control-tower">Code</a>
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="mono">02</span>
+        <h2>Projects</h2>
+        <p>Two complete projects on fictional data that you can look inside.</p>
+      </div>
+      <div>
+        <article class="proj">
+          <a class="shot" href="projects/pick-up-orders.html" aria-label="See the pick-up orders project">
+            <img src="../assets/img/retiros/01_tablero_principal.png" alt="Power BI pick-up orders dashboard with filters, KPI cards and the order detail table" width="1430" height="682" loading="lazy">
+          </a>
+          <div>
+            <h3>Pick-up orders control</h3>
+            <p>SLA rules in Python, a daily alert per carrier, SQL KPIs on DuckDB and a Power BI dashboard with search and a customer drill-through. A replica of a real dashboard, on invented data.</p>
+            <span class="mono">Python · pandas · DuckDB · SQL · Power BI · DAX · 60 tests</span>
+            <ul class="links">
+              <li><a class="go" href="projects/pick-up-orders.html">See the project →</a></li>
+              <li><a href="https://github.com/JuanCamellini/logistics-control-tower">Code ↗</a></li>
+            </ul>
           </div>
-        </div>
-      </article>
-
-      <article class="card project">
-        <a class="shot" href="projects/invoicing.html" aria-label="See the electronic invoicing project">
-          <img src="../assets/img/facturacion/lote-emitido.png" alt="Invoicing app with a monthly batch issued: each invoice with its number, authorization code and PDF" width="1280" height="720" loading="lazy">
-        </a>
-        <div class="body">
-          <p class="eyebrow">Automation · Data</p>
-          <h3>Electronic invoicing with ARCA</h3>
-          <p>From a monthly spreadsheet to about 100 electronic invoices authorized by ARCA, Argentina's tax agency, with their PDFs and a control that prevents duplicates. Data cleaning, validation and reconciliation against ARCA.</p>
-          <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>ARCA web services</li><li>730 tests</li></ul>
-          <div class="actions">
-            <a class="btn primary" href="projects/invoicing.html">See the project and the video</a>
+        </article>
+        <article class="proj">
+          <a class="shot" href="projects/invoicing.html" aria-label="See the electronic invoicing project">
+            <img src="../assets/img/facturacion/lote-emitido.png" alt="Invoicing app with a monthly batch issued: each invoice with its number, authorization code and PDF" width="1280" height="720" loading="lazy">
+          </a>
+          <div>
+            <h3>Electronic invoicing with ARCA</h3>
+            <p>From a monthly spreadsheet to about 100 electronic invoices authorized by ARCA, Argentina's tax agency, with their PDFs and a control that prevents duplicates. Data cleaning, validation and reconciliation against ARCA.</p>
+            <span class="mono">Python · FastAPI · PostgreSQL · ARCA web services · 730 tests</span>
+            <ul class="links">
+              <li><a class="go" href="projects/invoicing.html">See the project and video →</a></li>
+            </ul>
           </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="how-i-work">
-    <div class="wrap">
-      <p class="eyebrow">How I work</p>
-      <h2>Process first, code second</h2>
-      <div class="grid three">
-        <article class="card">
-          <h3>Clear rules before automating</h3>
-          <p>I agree on statuses, deadlines and exceptions with the people who run the process. Only then do I automate, and every rule is written down.</p>
-        </article>
-        <article class="card">
-          <h3>One number for everyone</h3>
-          <p>Rules live in one place and are tested, so the dashboard, the alerts and the reports never contradict each other.</p>
-        </article>
-        <article class="card">
-          <h3>AI as a tool</h3>
-          <p>I design the flow, the rules and the controls; I write the code with AI assistance (Claude Code), reviewing and testing every part.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="background">
-    <div class="wrap">
-      <p class="eyebrow">Background</p>
-      <h2>From order to invoice</h2>
-      <p class="lead">I've worked at different stages of the process, so I know it end to end: order, delivery note, delivery, proof of delivery, invoicing and claims.</p>
-      <ol class="timeline">
-        <li>
-          <span class="when">2026 – present</span>
-          <div><h3>Transportation &amp; Logistics Analyst · Penguin Random House</h3><p>Pick-ups, deliveries, delivery notes and proof of delivery in SAP; working with the 3PL and carriers; automation and dashboards for the team.</p></div>
-        </li>
-        <li>
-          <span class="when">2022 – present</span>
-          <div><h3>Billing Administrator (part-time) · Consultorio de Salud Ayres</h3><p>About 200 patients a month billed to roughly 35 health insurers through ARCA. The invoicing app grew out of this job.</p></div>
-        </li>
-        <li>
-          <span class="when">2025 – Jan 2026</span>
-          <div><h3>Owner &amp; Operations Manager · Beverage distribution business</h3><p>Ran the whole operation single-handedly: about 100 customers and 200 orders a week, inventory, delivery routes and invoicing.</p></div>
-        </li>
-        <li>
-          <span class="when">2023 – Feb 2025</span>
-          <div><h3>Operations &amp; Documentation Administrator · Autobuses S.A.</h3><p>Technical and administrative documentation for a fleet of 120+ buses, and fleet status reports to management.</p></div>
-        </li>
+  <section id="how-i-work">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="mono">03</span>
+        <h2>How I work</h2>
+      </div>
+      <ol class="numbered">
+        <li><div><h3>Clear rules before automating</h3><p>I agree on statuses, deadlines and exceptions with the people who run the process. Only then do I automate, and every rule is written down.</p></div></li>
+        <li><div><h3>One number for everyone</h3><p>Rules live in one place and are tested, so the dashboard, the alerts and the reports never contradict each other.</p></div></li>
+        <li><div><h3>AI as a tool</h3><p>I design the flow, the rules and the controls; I write the code with AI assistance (Claude Code), reviewing and testing every part.</p></div></li>
       </ol>
+    </div>
+  </section>
 
-      <div class="grid two" style="margin-top:32px">
-        <div>
-          <h3>Tools</h3>
-          <ul class="skills">
-            <li>SQL (PostgreSQL)</li><li>Python (pandas)</li><li>Power BI (DAX, Power Query)</li><li>Power Automate</li>
-            <li>Advanced Excel</li><li>SAP (logistics documents)</li><li>DuckDB</li><li>FastAPI</li><li>Git</li>
-          </ul>
+  <section id="background">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="mono">04</span>
+        <h2>Background</h2>
+        <p>From order to invoice: I've worked at every stage of the process.</p>
+      </div>
+      <div>
+        <div class="years">
+          <span class="mono">2026 – present</span>
+          <div><h3>Transportation &amp; Logistics Analyst · Penguin Random House</h3><p>Pick-ups, deliveries, delivery notes and proof of delivery in SAP; working with the 3PL and carriers; automation and dashboards for the team.</p></div>
         </div>
-        <div>
-          <h3>Education and languages</h3>
-          <p class="muted small" style="margin-bottom:.4em">Computer Systems Engineering, Universidad Abierta Interamericana (3 years completed).<br>
-          SQL &amp; Power BI for Data Analysis (Platzi) · Python &amp; pandas for Data Analysis (Coderhouse).</p>
-          <p class="muted small">Spanish: native · English: B2 (fluent reading and listening).</p>
+        <div class="years">
+          <span class="mono">2022 – present</span>
+          <div><h3>Billing Administrator (part-time) · Consultorio de Salud Ayres</h3><p>About 200 patients a month billed to roughly 35 health insurers through ARCA. The invoicing app grew out of this job.</p></div>
+        </div>
+        <div class="years">
+          <span class="mono">2025 – Jan 2026</span>
+          <div><h3>Owner &amp; Operations Manager · Beverage distribution business</h3><p>Ran the whole operation single-handedly: about 100 customers and 200 orders a week, inventory, delivery routes and invoicing.</p></div>
+        </div>
+        <div class="years">
+          <span class="mono">2023 – Feb 2025</span>
+          <div><h3>Operations &amp; Documentation Administrator · Autobuses S.A.</h3><p>Technical and administrative documentation for a fleet of 120+ buses, and fleet status reports to management.</p></div>
+        </div>
+
+        <div class="grid two" style="margin-top:44px">
+          <div>
+            <h3>Tools</h3>
+            <p class="mono muted">SQL (PostgreSQL) · Python (pandas) · Power BI (DAX, Power Query) · Power Automate · Advanced Excel · SAP · DuckDB · FastAPI · Git</p>
+          </div>
+          <div>
+            <h3>Education and languages</h3>
+            <p class="muted small">Computer Systems Engineering, Universidad Abierta Interamericana (3 years completed). SQL &amp; Power BI for Data Analysis (Platzi). Python &amp; pandas for Data Analysis (Coderhouse).</p>
+            <p class="muted small">Spanish: native · English: B2 (fluent reading and listening).</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <div class="wrap">
-      <p class="eyebrow">Contact</p>
-      <h2>Let's talk</h2>
-      <p class="lead">I'm looking for a remote data, BI or operations analyst role, full-time or contract.</p>
-      <div class="actions">
-        <a class="btn primary" href="mailto:juantomascamellini@gmail.com">juantomascamellini@gmail.com</a>
-        <a class="btn" href="https://www.linkedin.com/in/juancamellini">LinkedIn</a>
-        <a class="btn" href="https://github.com/JuanCamellini">GitHub</a>
-        <a class="btn" href="../assets/cv/Juan_Camellini_CV_EN.pdf" download>Resume (English)</a>
-        <a class="btn" href="../assets/cv/Juan_Camellini_CV_ES.pdf" download lang="es">CV en español</a>
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="mono">05</span>
+        <h2>Contact</h2>
+        <p>I'm looking for a remote data, BI or operations analyst role.</p>
+      </div>
+      <div>
+        <a class="contact-big" href="mailto:juantomascamellini@gmail.com">juantomascamellini@gmail.com</a>
+        <ul class="links">
+          <li><a href="https://www.linkedin.com/in/juancamellini">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/JuanCamellini">GitHub ↗</a></li>
+          <li><a href="../assets/cv/Juan_Camellini_CV_EN.pdf" download>Resume (English) ↓</a></li>
+          <li><a href="../assets/cv/Juan_Camellini_CV_ES.pdf" download lang="es">CV en español ↓</a></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -233,7 +236,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <span>© 2026 Juan Tomas Camellini</span>
-    <span>Projects use fictional data. Plain HTML and CSS, no cookies, no tracking.</span>
+    <span>Projects use fictional data · plain HTML and CSS, no cookies, no tracking</span>
   </div>
 </footer>
 </body>
