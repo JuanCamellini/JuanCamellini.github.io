@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Juan Tomas Camellini · Analista de datos de operaciones y logística</title>
-<meta name="description" content="Analista de datos de operaciones y logística. Alertas por SLA, trazabilidad, tableros de Power BI y automatización de procesos administrativos con SQL y Python.">
+<meta name="description" content="Analista de datos de operaciones y logística. Tablero de Power BI de órdenes de retiro con alertas por SLA, app de facturación electrónica con ARCA y automatización de procesos con Power Apps, SQL y Python.">
 <meta property="og:title" content="Juan Tomas Camellini · Analista de datos de operaciones y logística">
-<meta property="og:description" content="Alertas por SLA, trazabilidad, tableros de Power BI y automatización de procesos con SQL y Python.">
+<meta property="og:description" content="Tablero de Power BI de órdenes de retiro con alertas por SLA, facturación electrónica automatizada y Power Apps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://juancamellini.github.io/">
 <meta property="og:image" content="https://juancamellini.github.io/assets/img/retiros/01_tablero_principal.png">
@@ -36,17 +36,17 @@
 
 <main id="contenido">
 
-  <section class="hero">
+  <section class="hero bg-grid">
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <h1 class="hero-name">Juan Tomas<br>Camellini</h1>
+          <p class="status"><i aria-hidden="true"></i>Disponible para trabajo remoto</p>
+          <h1 class="hero-name">Juan Tomas<br>Camellini<span class="dot">.</span></h1>
           <p class="hero-role">Analista de datos de operaciones y logística</p>
-          <p class="hero-text">Construyo las herramientas de datos que usan los equipos de operaciones todos los días: alertas por SLA, trazabilidad de entregas, tableros de Power BI y automatización de procesos administrativos.</p>
+          <p class="hero-text">Construyo las herramientas de datos que usan los equipos de operaciones todos los días: un tablero de Power BI de órdenes de retiro con alertas por SLA, una app de facturación electrónica que emite en minutos lo que llevaba más de 16 horas y una Power App que genera las órdenes de retiro.</p>
           <ul class="hero-meta">
             <li>Buenos Aires · UTC-3</li>
-            <li>Remoto · contractor o relación de dependencia</li>
-            <li>SQL · Python · Power BI · Power Automate</li>
+            <li>Contractor o relación de dependencia</li>
           </ul>
           <ul class="links">
             <li><a class="go" href="#proyectos">Ver proyectos →</a></li>
@@ -55,23 +55,30 @@
             <li><a href="https://github.com/JuanCamellini">GitHub ↗</a></li>
           </ul>
         </div>
-        <img class="portrait" src="assets/img/juan-camellini.jpg" alt="Foto de Juan Tomas Camellini" width="472" height="520">
+        <div class="portrait-wrap"><img class="portrait" src="assets/img/juan-camellini.jpg" alt="Foto de Juan Tomas Camellini" width="472" height="520"></div>
       </div>
 
       <div class="facts">
-        <div class="fact"><b>~2.500</b><span>remitos por mes controlados por la plataforma de trazabilidad que hice</span></div>
+        <div class="fact"><b>22→18</b><span>días de rendición promedio del proveedor del interior, con alertas y penalidades por SLA</span></div>
+        <div class="fact"><b>16 h→min</b><span>para emitir las 101 facturas del mes de un consultorio, con mi app de facturación electrónica</span></div>
         <div class="fact"><b>~7/día</b><span>alertas a proveedores con las órdenes de retiro que vencen su SLA</span></div>
-        <div class="fact"><b>101/101</b><span>facturas reproducidas al centavo por mi app de facturación electrónica</span></div>
       </div>
     </div>
   </section>
+
+  <div class="marquee" aria-label="Herramientas">
+    <div class="marquee-track">
+      <ul><li>SQL</li><li>Python</li><li>pandas</li><li>Power BI</li><li>DAX</li><li>Power Query</li><li>Power Automate</li><li>Power Apps</li><li>DuckDB</li><li>PostgreSQL</li><li>Excel</li><li>SAP</li><li>FastAPI</li><li>Git</li></ul>
+      <ul aria-hidden="true"><li>SQL</li><li>Python</li><li>pandas</li><li>Power BI</li><li>DAX</li><li>Power Query</li><li>Power Automate</li><li>Power Apps</li><li>DuckDB</li><li>PostgreSQL</li><li>Excel</li><li>SAP</li><li>FastAPI</li><li>Git</li></ul>
+    </div>
+  </div>
 
   <section id="experiencia">
     <div class="wrap sec">
       <div class="sec-head">
         <span class="mono">01</span>
         <h2>Experiencia</h2>
-        <p>Lo que construí en mi trabajo actual, además de la gestión diaria de retiros, entregas y documentación en SAP.</p>
+        <p>Lo que construí en mi trabajo actual, además de la gestión diaria de retiros, remitos y documentación en SAP.</p>
       </div>
       <div>
         <div class="job-line">
@@ -80,6 +87,19 @@
         </div>
         <ul class="rows">
           <li class="row">
+            <div><h3>Tablero de órdenes de retiro en Power BI</h3><span class="mono">Power BI · DAX · Power Query</span></div>
+            <div>
+              <p>La trazabilidad de cada orden de retiro: pendientes, críticas según el SLA de cada proveedor, antigüedad, motivos de depuración y detalle por cliente. Lo usa toda el área operativa y se presentó a la gerencia comercial.</p>
+              <p class="result">Una réplica con datos ficticios está en <a href="proyectos/ordenes-retiro.html">Proyectos</a>.</p>
+            </div>
+          </li>
+          <li class="row">
+            <div><h3>Base de retiros que se actualiza sola</h3><span class="mono">Excel · cruces automatizados</span></div>
+            <div>
+              <p>Automaticé la alimentación diaria de la base de datos de retiros con cruces de Excel, así el tablero y las alertas trabajan siempre con los datos del día.</p>
+            </div>
+          </li>
+          <li class="row">
             <div><h3>Alertas diarias por SLA a los proveedores</h3><span class="mono">Power Automate · Power BI · Excel</span></div>
             <div>
               <p>Cada día se detectan las órdenes de retiro que alcanzan el plazo acordado con su proveedor, y a cada uno le llega un mail solo con sus órdenes nuevas: unos 7 por día. Antes, el único aviso era la lista semanal de todas las pendientes, que sale los miércoles y se sigue enviando.</p>
@@ -87,30 +107,23 @@
             </div>
           </li>
           <li class="row">
-            <div><h3>Tablero de retiros en Power BI</h3><span class="mono">Power BI · DAX · Power Query</span></div>
+            <div><h3>Penalidades por SLA con datos</h3><span class="mono">Power BI · alertas · comunicación interna</span></div>
             <div>
-              <p>Pendientes, críticas según el SLA de cada proveedor, antigüedad, motivos de depuración y detalle por cliente. Lo usa el área operativa y se presentó a la gerencia comercial.</p>
-              <p class="result">Una réplica con datos ficticios está en <a href="proyectos/ordenes-retiro.html">Proyectos</a>.</p>
+              <p>Con el registro de las alertas y del tablero se acordaron penalidades para los proveedores que no cumplen el SLA, salvo excepciones que se revisan caso por caso.</p>
+              <p class="result">El proveedor del interior bajó su tiempo promedio de rendición de unos 22 a 18 días.</p>
             </div>
           </li>
           <li class="row">
-            <div><h3>Plataforma de trazabilidad de entregas</h3><span class="mono">Python · pandas · SQL · Power BI · Power Automate · Render</span></div>
+            <div><h3>Power App de retiros para Market Self <span class="tag">En fase final</span></h3><span class="mono">Power Apps · formularios · PDF automático</span></div>
             <div>
-              <p>En producción y en uso diario. Reemplazó el seguimiento por mail con controles que antes no existían entre el operador logístico (3PL), los transportistas y la empresa.</p>
-              <p class="result">Controla unos 2.500 remitos por mes.</p>
+              <p>Los repositores, que acomodan la mercadería en las tiendas y generan las devoluciones, pedían los retiros por mail y la información llegaba confusa. Creé una Power App donde cargan el retiro y los datos de la tienda: la solicitud llega sola al correo y se genera el PDF de la orden de retiro, listo para enviar al transportista. Market Self es una empresa que se sumó al grupo.</p>
+              <p class="result">Armar cada orden llevaba 4–5 minutos y ahora sale automática; se hacen entre 6 y 10 por día. Bajaron los retiros fallidos y las idas y vueltas con el proveedor.</p>
             </div>
           </li>
           <li class="row">
-            <div><h3>Documentación y control interno de retiros</h3><span class="mono">Excel · Power Automate · SAP</span></div>
+            <div><h3>Reporte mensual de KPIs de Market Self</h3><span class="mono">SAP · gráficos · presentación mensual</span></div>
             <div>
-              <p>Automaticé la actualización de la documentación y la escritura del Excel de órdenes de retiro, con controles internos que ordenan la gestión y acortan sus tiempos.</p>
-            </div>
-          </li>
-          <li class="row">
-            <div><h3>Órdenes de retiro para Market Self <span class="tag">En desarrollo</span></h3><span class="mono">Formularios · mails automáticos · Excel</span></div>
-            <div>
-              <p>Un formulario genera la orden de retiro, se la envía al proveedor que corresponde y escribe los Excel internos, para agilizar la gestión administrativa de Market Self, una empresa que se sumó al grupo.</p>
-              <p class="result">Lo termino en noviembre de 2026.</p>
+              <p>Cada principio de mes armo, con datos de SAP, la presentación del rendimiento del mes: remitos, bultos por zona, cantidad facturada y otros indicadores. La presento junto con mi jefe de área en la reunión mensual con el equipo de Chile.</p>
             </div>
           </li>
         </ul>
@@ -119,7 +132,7 @@
     </div>
   </section>
 
-  <section id="proyectos">
+  <section id="proyectos" class="band">
     <div class="wrap sec">
       <div class="sec-head">
         <span class="mono">02</span>
@@ -147,7 +160,7 @@
           </a>
           <div>
             <h3>Facturación electrónica con ARCA</h3>
-            <p>De una planilla mensual a unas 100 facturas electrónicas con CAE, sus PDF y un control propio que impide emitir duplicados. Limpieza de datos, validaciones y conciliación contra ARCA.</p>
+            <p>Emite en minutos las 101 facturas del mes de un consultorio de salud, que antes llevaban más de 16 horas de carga manual. Cada PDF queda en su carpeta de Google Drive y un control propio impide emitir duplicados. En producción desde el 31/10/2026.</p>
             <span class="mono">Python · FastAPI · PostgreSQL · web services de ARCA · 730 tests</span>
             <ul class="links">
               <li><a class="go" href="proyectos/facturacion.html">Ver proyecto y video →</a></li>
@@ -182,11 +195,11 @@
       <div>
         <div class="years">
           <span class="mono">2026 – hoy</span>
-          <div><h3>Analista de Transporte y Logística · Penguin Random House</h3><p>Retiros, entregas, remitos y conformes en SAP; relación con el 3PL y los transportistas; automatización y tableros del área.</p></div>
+          <div><h3>Analista de Transporte y Logística · Penguin Random House</h3><p>Retiros, remitos y conformes en SAP; relación con el 3PL y los transportistas; tableros, automatización y el reporte mensual de KPIs de Market Self.</p></div>
         </div>
         <div class="years">
           <span class="mono">2022 – hoy</span>
-          <div><h3>Administrativo de Facturación (part-time) · Consultorio de Salud Ayres</h3><p>Unos 200 pacientes por mes facturados a unas 35 obras sociales en ARCA. De ahí salió la app de facturación.</p></div>
+          <div><h3>Administrativo de Facturación (part-time) · Consultorio de Salud Ayres</h3><p>Unos 200 pacientes por mes facturados a unas 35 obras sociales en ARCA. De ahí salió mi app de facturación, que hoy emite las facturas del consultorio.</p></div>
         </div>
         <div class="years">
           <span class="mono">2025 – ene 2026</span>
@@ -200,7 +213,7 @@
         <div class="grid two" style="margin-top:44px">
           <div>
             <h3>Herramientas</h3>
-            <p class="mono muted">SQL (PostgreSQL) · Python (pandas) · Power BI (DAX, Power Query) · Power Automate · Excel avanzado · SAP · DuckDB · FastAPI · Git</p>
+            <p class="mono muted">SQL (PostgreSQL) · Python (pandas) · Power BI (DAX, Power Query) · Power Automate · Power Apps · Excel avanzado · SAP · DuckDB · FastAPI · Git</p>
           </div>
           <div>
             <h3>Formación e idiomas</h3>
@@ -212,7 +225,7 @@
     </div>
   </section>
 
-  <section id="contacto">
+  <section id="contacto" class="bg-grid center">
     <div class="wrap sec">
       <div class="sec-head">
         <span class="mono">05</span>

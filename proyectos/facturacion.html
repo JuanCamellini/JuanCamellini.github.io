@@ -34,15 +34,15 @@
 
 <main id="contenido">
 
-  <div class="page-head">
+  <div class="page-head bg-grid">
     <div class="wrap">
       <a class="back" href="../#proyectos">← Todos los proyectos</a>
       <p class="eyebrow">Proyecto · Automatización y datos</p>
       <h1>Facturación electrónica con ARCA</h1>
-      <p class="lead">De una planilla mensual a unas 100 facturas electrónicas con CAE de ARCA (ex AFIP), con sus PDF y un control propio que nunca emite una factura dos veces. La hice para el consultorio de salud donde facturo.</p>
+      <p class="lead">De una planilla mensual a unas 100 facturas electrónicas con CAE de ARCA (ex AFIP), en minutos, con sus PDF guardados en su carpeta de Google Drive y un control propio que nunca emite una factura dos veces. Antes llevaba más de 16 horas de carga manual. La hice para el consultorio de salud donde facturo.</p>
       <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Web services de ARCA (SOAP)</li><li>Playwright</li><li>pytest · 730 tests</li></ul>
       <!-- TODO(Juan): actualizar el estado cuando la obra social apruebe la factura y después del lote de noviembre. -->
-      <p style="margin-top:18px"><span class="badge ok">Estado al 23/10/2026</span> <span class="muted small">Primera factura real emitida desde la app. Falta usarla con un mes completo en producción.</span></p>
+      <p style="margin-top:18px"><span class="badge ok">Estado al 29/10/2026</span> <span class="muted small">Pasa a producción el 31/10/2026, con las facturas reales del consultorio.</span></p>
     </div>
   </div>
 
@@ -63,7 +63,7 @@
       <div class="grid two">
         <div class="prose">
           <h2>El problema</h2>
-          <p>Un consultorio de kinesiología factura cada mes sus prestaciones a obras sociales: <strong>unas 100 facturas por mes, cargadas a mano una por una</strong> en el portal de ARCA, copiando los datos de un Excel. Eso ocupaba <strong>los primeros diez días de cada mes</strong>.</p>
+          <p>Un consultorio de kinesiología factura cada mes sus prestaciones a obras sociales: <strong>unas 100 facturas por mes, cargadas a mano una por una</strong> en el portal de ARCA, copiando los datos de un Excel. Eso llevaba <strong>más de 16 horas de trabajo</strong>, repartidas en los primeros diez días de cada mes.</p>
           <p>La planilla había crecido sin reglas:</p>
           <ul>
             <li><strong>15 formas distintas</strong> de escribir 6 condiciones frente al IVA, y <strong>42</strong> de escribir 3 prestaciones;</li>
@@ -93,7 +93,8 @@
         <table>
           <thead><tr><th>Indicador</th><th>Valor</th><th>De dónde sale</th></tr></thead>
           <tbody>
-            <tr><td>Carga a mano antes de la app</td><td>Los primeros 10 días de cada mes</td><td>Medido en el consultorio</td></tr>
+            <tr><td>Carga a mano antes de la app</td><td>Más de 16 horas, repartidas en los primeros 10 días del mes</td><td>Medido en el consultorio</td></tr>
+            <tr><td>Emisión con la app</td><td>Minutos para el lote de 101 facturas</td><td>Medido en el consultorio</td></tr>
             <tr><td>Facturas por mes</td><td>Unas 100</td><td>Medido en el consultorio</td></tr>
             <tr><td>Importes</td><td>101 facturas hechas a mano reproducidas al centavo, incluidas 21 con IVA al 10,5 %</td><td>Validación de la app contra meses ya facturados</td></tr>
             <tr><td>Tests automáticos</td><td>730, con PostgreSQL real en un esquema temporal</td><td>Suite de la app</td></tr>
@@ -189,10 +190,10 @@
             <li>Las etapas de base, padrón, validación y cálculo están aprobadas contra datos reales: los importes coinciden al centavo con los meses facturados a mano.</li>
             <li><strong>Primera factura real emitida desde la app.</strong> Su QR lleva a la página de comprobación de ARCA y da “autorizado”. El portal de la obra social permitió cargar el PDF, y falta su aprobación.</li>
             <li>Las notas de crédito (totales, parciales y de varias facturas a la vez) se probaron en el entorno de pruebas de ARCA.</li>
-            <li>Lo que ocupaba diez días por mes pasa a ser: subir la planilla, revisar y emitir.</li>
+            <li>Lo que llevaba más de 16 horas por mes pasa a ser: subir la planilla, revisar y emitir el lote en minutos. Cada PDF queda solo en su carpeta de Google Drive.</li>
           </ul>
           <h2 style="margin-top:1.4em">Lo que sigue</h2>
-          <p>Primero, un mes completo en producción. Después, ofrecerla como servicio a otros prestadores de salud que facturan a obras sociales con el mismo esquema: separar los datos de cada cliente, usar la delegación oficial de ARCA, soportar Factura C y cubrir lo legal del tratamiento de datos de salud.</p>
+          <p>Primero, el primer mes completo en producción, desde el 31/10/2026. Después, ofrecerla como servicio a otros prestadores de salud que facturan a obras sociales con el mismo esquema: separar los datos de cada cliente, usar la delegación oficial de ARCA, soportar Factura C y cubrir lo legal del tratamiento de datos de salud.</p>
         </div>
         <div class="prose">
           <h2>Stack</h2>

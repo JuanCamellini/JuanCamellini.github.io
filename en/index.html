@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Juan Tomas Camellini · Data &amp; Operations Analyst, Logistics</title>
-<meta name="description" content="Data and operations analyst in logistics. SLA alerts, delivery traceability, Power BI dashboards and process automation with SQL and Python.">
+<meta name="description" content="Data and operations analyst in logistics. A Power BI pick-up orders dashboard with SLA alerts, an e-invoicing app for Argentina's tax agency, and process automation with Power Apps, SQL and Python.">
 <meta property="og:title" content="Juan Tomas Camellini · Data &amp; Operations Analyst, Logistics">
-<meta property="og:description" content="SLA alerts, delivery traceability, Power BI dashboards and process automation with SQL and Python.">
+<meta property="og:description" content="A Power BI pick-up orders dashboard with SLA alerts, automated e-invoicing and Power Apps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://juancamellini.github.io/en/">
 <meta property="og:image" content="https://juancamellini.github.io/assets/img/retiros/01_tablero_principal.png">
@@ -36,17 +36,17 @@
 
 <main id="content">
 
-  <section class="hero">
+  <section class="hero bg-grid">
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <h1 class="hero-name">Juan Tomas<br>Camellini</h1>
+          <p class="status"><i aria-hidden="true"></i>Open to remote work</p>
+          <h1 class="hero-name">Juan Tomas<br>Camellini<span class="dot">.</span></h1>
           <p class="hero-role">Data &amp; operations analyst · Logistics</p>
-          <p class="hero-text">I build the data tools that operations teams use every day: SLA alerts to carriers, delivery traceability, Power BI dashboards and automation of administrative processes.</p>
+          <p class="hero-text">I build the data tools that operations teams use every day: a Power BI pick-up orders dashboard with SLA alerts, an e-invoicing app that does in minutes what used to take over 16 hours, and a Power App that generates pick-up orders.</p>
           <ul class="hero-meta">
             <li>Buenos Aires · UTC-3</li>
-            <li>Remote · full-time or contract</li>
-            <li>SQL · Python · Power BI · Power Automate</li>
+            <li>Full-time or contract</li>
           </ul>
           <ul class="links">
             <li><a class="go" href="#projects">See projects →</a></li>
@@ -55,23 +55,30 @@
             <li><a href="https://github.com/JuanCamellini">GitHub ↗</a></li>
           </ul>
         </div>
-        <img class="portrait" src="../assets/img/juan-camellini.jpg" alt="Photo of Juan Tomas Camellini" width="472" height="520">
+        <div class="portrait-wrap"><img class="portrait" src="../assets/img/juan-camellini.jpg" alt="Photo of Juan Tomas Camellini" width="472" height="520"></div>
       </div>
 
       <div class="facts">
-        <div class="fact"><b>~2,500</b><span>delivery notes a month tracked by the traceability platform I built</span></div>
+        <div class="fact"><b>22→18</b><span>days: the regional carrier's average delivery time, with SLA alerts and penalties</span></div>
+        <div class="fact"><b>16 h→min</b><span>to issue a medical practice's 101 monthly invoices, with my e-invoicing app</span></div>
         <div class="fact"><b>~7/day</b><span>alerts to carriers with the pick-up orders that hit their SLA</span></div>
-        <div class="fact"><b>101/101</b><span>invoices reproduced to the cent by my e-invoicing app</span></div>
       </div>
     </div>
   </section>
+
+  <div class="marquee" aria-label="Tools">
+    <div class="marquee-track">
+      <ul><li>SQL</li><li>Python</li><li>pandas</li><li>Power BI</li><li>DAX</li><li>Power Query</li><li>Power Automate</li><li>Power Apps</li><li>DuckDB</li><li>PostgreSQL</li><li>Excel</li><li>SAP</li><li>FastAPI</li><li>Git</li></ul>
+      <ul aria-hidden="true"><li>SQL</li><li>Python</li><li>pandas</li><li>Power BI</li><li>DAX</li><li>Power Query</li><li>Power Automate</li><li>Power Apps</li><li>DuckDB</li><li>PostgreSQL</li><li>Excel</li><li>SAP</li><li>FastAPI</li><li>Git</li></ul>
+    </div>
+  </div>
 
   <section id="experience">
     <div class="wrap sec">
       <div class="sec-head">
         <span class="mono">01</span>
         <h2>Experience</h2>
-        <p>What I built in my current job, on top of the day-to-day work on pick-ups, deliveries and documents in SAP.</p>
+        <p>What I built in my current job, on top of the day-to-day work on pick-ups, delivery notes and documents in SAP.</p>
       </div>
       <div>
         <div class="job-line">
@@ -80,6 +87,19 @@
         </div>
         <ul class="rows">
           <li class="row">
+            <div><h3>Pick-up orders dashboard in Power BI</h3><span class="mono">Power BI · DAX · Power Query</span></div>
+            <div>
+              <p>Traceability for every pick-up order: pending orders, critical status by each carrier's SLA, ageing, purge reasons and a customer drill-through. Used across the operations area and presented to sales management.</p>
+              <p class="result">A replica on fictional data is under <a href="projects/pick-up-orders.html">Projects</a>.</p>
+            </div>
+          </li>
+          <li class="row">
+            <div><h3>A database that refreshes itself</h3><span class="mono">Excel · automated cross-checks</span></div>
+            <div>
+              <p>I automated the daily refresh of the pick-up orders database with Excel cross-checks, so the dashboard and the alerts always work with today's data.</p>
+            </div>
+          </li>
+          <li class="row">
             <div><h3>Daily SLA alerts to carriers</h3><span class="mono">Power Automate · Power BI · Excel</span></div>
             <div>
               <p>Every day, the pick-up orders that reach the deadline agreed with their carrier are flagged, and each carrier gets an email with only its new ones: about 7 a day. Before, the only notice was the weekly list of every pending order, sent on Wednesdays, which still goes out.</p>
@@ -87,30 +107,23 @@
             </div>
           </li>
           <li class="row">
-            <div><h3>Pick-up orders dashboard in Power BI</h3><span class="mono">Power BI · DAX · Power Query</span></div>
+            <div><h3>SLA penalties backed by data</h3><span class="mono">Power BI · alerts · internal reporting</span></div>
             <div>
-              <p>Pending orders, SLA-critical orders by carrier, ageing, purge reasons and a customer drill-through. Used across the operations area and presented to sales management.</p>
-              <p class="result">A replica on fictional data is under <a href="projects/pick-up-orders.html">Projects</a>.</p>
+              <p>With the record from the alerts and the dashboard, we agreed penalties for carriers that miss the SLA, except for exceptions reviewed case by case.</p>
+              <p class="result">The regional carrier's average delivery time dropped from about 22 to 18 days.</p>
             </div>
           </li>
           <li class="row">
-            <div><h3>Delivery traceability platform</h3><span class="mono">Python · pandas · SQL · Power BI · Power Automate · Render</span></div>
+            <div><h3>Pick-up Power App for Market Self <span class="tag">Final rollout</span></h3><span class="mono">Power Apps · forms · automatic PDF</span></div>
             <div>
-              <p>In production and used daily. It replaced email follow-up with checks that did not exist before between the third-party logistics provider (3PL), the carriers and the company.</p>
-              <p class="result">Tracks about 2,500 delivery notes a month.</p>
+              <p>Merchandisers, who stock the stores and generate the returns, used to request pick-ups by email, and the information arrived unclear. I built a Power App where they enter the pick-up and the store details: the request reaches our inbox automatically and the pick-up order PDF is generated, ready to send to the carrier. Market Self is a company that recently joined the group.</p>
+              <p class="result">Each order used to take 4–5 minutes to prepare; now it's automatic, at 6 to 10 orders a day. Failed pick-ups and back-and-forth with the carrier went down.</p>
             </div>
           </li>
           <li class="row">
-            <div><h3>Pick-up documentation and internal control</h3><span class="mono">Excel · Power Automate · SAP</span></div>
+            <div><h3>Monthly KPI report for Market Self</h3><span class="mono">SAP · charts · monthly review</span></div>
             <div>
-              <p>I automated the document updates and the writing of the pick-up orders Excel file, with internal checks that bring order to the process and shorten handling times.</p>
-            </div>
-          </li>
-          <li class="row">
-            <div><h3>Pick-up orders for Market Self <span class="tag">In progress</span></h3><span class="mono">Forms · automated emails · Excel</span></div>
-            <div>
-              <p>A form creates the pick-up order, sends it to the right carrier and writes the internal Excel files, to speed up admin work for Market Self, a company that recently joined the group.</p>
-              <p class="result">I'm finishing it in November 2026.</p>
+              <p>At the start of every month I build the performance deck from SAP data: delivery notes, packages by zone, billed volume and other KPIs. I present it with my area manager in the monthly meeting with the team in Chile.</p>
             </div>
           </li>
         </ul>
@@ -119,7 +132,7 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="band">
     <div class="wrap sec">
       <div class="sec-head">
         <span class="mono">02</span>
@@ -147,7 +160,7 @@
           </a>
           <div>
             <h3>Electronic invoicing with ARCA</h3>
-            <p>From a monthly spreadsheet to about 100 electronic invoices authorized by ARCA, Argentina's tax agency, with their PDFs and a control that prevents duplicates. Data cleaning, validation and reconciliation against ARCA.</p>
+            <p>Issues a medical practice's 101 monthly invoices through ARCA, Argentina's tax agency, in minutes; keying them in by hand took over 16 hours. Each PDF is filed in its Google Drive folder, and a built-in control prevents duplicates. In production since 31 Oct 2026.</p>
             <span class="mono">Python · FastAPI · PostgreSQL · ARCA web services · 730 tests</span>
             <ul class="links">
               <li><a class="go" href="projects/invoicing.html">See the project and video →</a></li>
@@ -182,11 +195,11 @@
       <div>
         <div class="years">
           <span class="mono">2026 – present</span>
-          <div><h3>Transportation &amp; Logistics Analyst · Penguin Random House</h3><p>Pick-ups, deliveries, delivery notes and proof of delivery in SAP; working with the 3PL and carriers; automation and dashboards for the team.</p></div>
+          <div><h3>Transportation &amp; Logistics Analyst · Penguin Random House</h3><p>Pick-ups, delivery notes and proof of delivery in SAP; working with the 3PL and carriers; dashboards, automation and the monthly KPI report for Market Self.</p></div>
         </div>
         <div class="years">
           <span class="mono">2022 – present</span>
-          <div><h3>Billing Administrator (part-time) · Consultorio de Salud Ayres</h3><p>About 200 patients a month billed to roughly 35 health insurers through ARCA. The invoicing app grew out of this job.</p></div>
+          <div><h3>Billing Administrator (part-time) · Consultorio de Salud Ayres</h3><p>About 200 patients a month billed to roughly 35 health insurers through ARCA. My invoicing app grew out of this job, and it now issues the practice's invoices.</p></div>
         </div>
         <div class="years">
           <span class="mono">2025 – Jan 2026</span>
@@ -200,7 +213,7 @@
         <div class="grid two" style="margin-top:44px">
           <div>
             <h3>Tools</h3>
-            <p class="mono muted">SQL (PostgreSQL) · Python (pandas) · Power BI (DAX, Power Query) · Power Automate · Advanced Excel · SAP · DuckDB · FastAPI · Git</p>
+            <p class="mono muted">SQL (PostgreSQL) · Python (pandas) · Power BI (DAX, Power Query) · Power Automate · Power Apps · Advanced Excel · SAP · DuckDB · FastAPI · Git</p>
           </div>
           <div>
             <h3>Education and languages</h3>
@@ -212,7 +225,7 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="bg-grid center">
     <div class="wrap sec">
       <div class="sec-head">
         <span class="mono">05</span>

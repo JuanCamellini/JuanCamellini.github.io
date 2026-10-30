@@ -34,15 +34,15 @@
 
 <main id="content">
 
-  <div class="page-head">
+  <div class="page-head bg-grid">
     <div class="wrap">
       <a class="back" href="../#projects">← All projects</a>
       <p class="eyebrow">Project · Automation and data</p>
       <h1>Electronic invoicing with ARCA</h1>
-      <p class="lead">From a monthly spreadsheet to about 100 electronic invoices authorized by ARCA (Argentina's federal tax agency, formerly AFIP), with their PDFs and a control that never issues the same invoice twice. I built it for the health practice where I handle billing.</p>
+      <p class="lead">From a monthly spreadsheet to about 100 electronic invoices authorized by ARCA (Argentina's federal tax agency, formerly AFIP), in minutes, with each PDF filed in its Google Drive folder and a control that never issues the same invoice twice. Keying them in by hand took over 16 hours. I built it for the health practice where I handle billing.</p>
       <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>ARCA web services (SOAP)</li><li>Playwright</li><li>pytest · 730 tests</li></ul>
       <!-- TODO(Juan): update the status when the health insurer approves the invoice, and after the November batch. -->
-      <p style="margin-top:18px"><span class="badge ok">Status as of 23/10/2026</span> <span class="muted small">First real invoice issued from the app. A full month in production is next.</span></p>
+      <p style="margin-top:18px"><span class="badge ok">Status as of 29/10/2026</span> <span class="muted small">Goes into production on 31/10/2026 with the practice's real invoices.</span></p>
     </div>
   </div>
 
@@ -63,7 +63,7 @@
       <div class="grid two">
         <div class="prose">
           <h2>The problem</h2>
-          <p>A physiotherapy practice bills its sessions to health insurers every month: <strong>about 100 invoices a month, keyed in one by one</strong> on ARCA's portal, copying data from an Excel file. That took <strong>the first ten days of every month</strong>.</p>
+          <p>A physiotherapy practice bills its sessions to health insurers every month: <strong>about 100 invoices a month, keyed in one by one</strong> on ARCA's portal, copying data from an Excel file. That took <strong>over 16 hours of work</strong>, spread over the first ten days of every month.</p>
           <p>The spreadsheet had grown without rules:</p>
           <ul>
             <li><strong>15 different spellings</strong> of 6 VAT statuses, and <strong>42</strong> of 3 services;</li>
@@ -93,7 +93,8 @@
         <table>
           <thead><tr><th>Metric</th><th>Value</th><th>Source</th></tr></thead>
           <tbody>
-            <tr><td>Manual entry before the app</td><td>The first 10 days of every month</td><td>Measured at the practice</td></tr>
+            <tr><td>Manual entry before the app</td><td>Over 16 hours, spread over the first 10 days of the month</td><td>Measured at the practice</td></tr>
+            <tr><td>Issuing with the app</td><td>Minutes for the batch of 101 invoices</td><td>Measured at the practice</td></tr>
             <tr><td>Invoices a month</td><td>About 100</td><td>Measured at the practice</td></tr>
             <tr><td>Amounts</td><td>101 hand-made invoices reproduced to the cent, including 21 with 10.5% VAT</td><td>App validation against months already billed</td></tr>
             <tr><td>Automated tests</td><td>730, against a real PostgreSQL database in a temporary schema</td><td>The app's test suite</td></tr>
@@ -189,10 +190,10 @@
             <li>The database, register, validation and calculation stages are signed off against real data: amounts match the hand-billed months to the cent.</li>
             <li><strong>First real invoice issued from the app.</strong> Its QR code opens ARCA's verification page, which shows it as authorized. The insurer's portal accepted the PDF upload; approval is pending.</li>
             <li>Credit notes (full, partial and covering several invoices at once) were tested in ARCA's test environment.</li>
-            <li>What took ten days a month becomes: upload the spreadsheet, review, issue.</li>
+            <li>What took over 16 hours a month becomes: upload the spreadsheet, review and issue the batch in minutes. Each PDF is filed in its Google Drive folder automatically.</li>
           </ul>
           <h2 style="margin-top:1.4em">What's next</h2>
-          <p>First, a full month in production. Then, offering it as a service to other healthcare providers who bill insurers the same way: separating each client's data, using ARCA's official delegation, supporting type C invoices for small taxpayers, and covering the legal side of handling health data.</p>
+          <p>First, the first full month in production, from 31/10/2026. Then, offering it as a service to other healthcare providers who bill insurers the same way: separating each client's data, using ARCA's official delegation, supporting type C invoices for small taxpayers, and covering the legal side of handling health data.</p>
         </div>
         <div class="prose">
           <h2>Stack</h2>
