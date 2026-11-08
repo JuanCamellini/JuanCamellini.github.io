@@ -5,7 +5,7 @@ Portfolio of **Juan Tomas Camellini**, data & operations analyst (logistics). Li
 It shows:
 - **Logistics experience:** the pick-up orders dashboard with daily automated data, SLA alerts and penalties for carriers, a Power App that generates pick-up orders, and a monthly KPI report.
 - **Pick-up orders control:** SLA rules in Python, a daily alert per carrier, SQL KPIs on DuckDB and a Power BI dashboard, all on fictional data. Code: [logistics-control-tower](https://github.com/JuanCamellini/logistics-control-tower).
-- **Electronic invoicing with ARCA:** in production since 31 Oct 2026. It issues about 100 invoices a month in minutes (over 16 hours by hand), with CAE, PDFs filed in Google Drive and duplicate protection, plus a 3-minute demo video on fictional data. The code is private.
+- **Electronic invoicing with ARCA:** in production since 31 Oct 2026. It issues about 100 invoices a month in 4 minutes (over 16 hours by hand), with CAE, PDFs filed in Google Drive and duplicate protection, plus a 3-minute demo video on fictional data. The code is private.
 
 ## Structure
 
