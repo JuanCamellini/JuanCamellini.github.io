@@ -50,6 +50,19 @@
     document.querySelectorAll("main section[id]").forEach(function (s) { observer.observe(s); });
   }
 
+  // Clicks on links marked data-ev="Event name" (extra data-ev-* attributes become event data).
+  // Umami's own data-umami-event holds the navigation until the request ends (~1 s); this doesn't:
+  // Umami sends with fetch keepalive, so the event survives the page change.
+  document.addEventListener("click", function (e) {
+    var el = e.target && e.target.closest ? e.target.closest("[data-ev]") : null;
+    if (!el) return;
+    var data = { pagina: page };
+    Array.prototype.forEach.call(el.attributes, function (a) {
+      if (a.name.indexOf("data-ev-") === 0) data[a.name.slice(8)] = a.value;
+    });
+    track(el.getAttribute("data-ev"), data);
+  }, true);
+
   // Video: first play and watched to the end.
   document.querySelectorAll("video").forEach(function (video) {
     var played = false;

@@ -96,13 +96,14 @@ code { font-family: var(--mono); font-size: .88em; }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--text); }
 .nav a[aria-current="page"] { box-shadow: inset 0 -1.5px 0 var(--accent); }
 .head-end { justify-self: end; display: flex; align-items: center; gap: 22px; }
-/* Language switch: a visible ES | EN segmented control; the current language is filled with the accent. */
-.lang-switch { display: inline-flex; align-items: stretch; border: 1.5px solid var(--text); border-radius: 2px; font-family: var(--mono); font-size: .76rem; font-weight: 700; letter-spacing: .06em; line-height: 1; }
-.lang-switch svg { align-self: center; margin: 0 2px 0 9px; color: var(--text); }
-.lang-switch > a, .lang-switch > span { display: flex; align-items: center; padding: 9px 11px; }
+/* Language switch: one link styled as an ES | EN segmented control. The current language is
+   filled with the accent; clicking anywhere on it goes to the other language. */
+.lang-switch { display: inline-flex; align-items: stretch; border: 1.5px solid var(--text); border-radius: 2px; font-family: var(--mono); font-size: .76rem; font-weight: 700; letter-spacing: .06em; line-height: 1; color: var(--text); cursor: pointer; }
+.lang-switch:hover { color: var(--text); }
+.lang-switch svg { align-self: center; margin: 0 2px 0 9px; }
+.lang-switch > span { display: flex; align-items: center; padding: 9px 11px; transition: background .2s; }
 .lang-switch .on { background: var(--accent); color: var(--accent-ink); }
-.lang-switch a { color: var(--text); transition: background .2s; }
-.lang-switch a:hover, .lang-switch a:focus-visible { color: var(--text); background: color-mix(in srgb, var(--accent) 22%, transparent); }
+.lang-switch:hover > span:not(.on), .lang-switch:focus-visible > span:not(.on) { background: color-mix(in srgb, var(--accent) 22%, transparent); }
 .cta { background: var(--text); color: var(--bg); font-weight: 700; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; padding: 11px 18px; border-radius: 2px; transition: background .2s, color .2s; }
 .cta:hover { background: var(--accent); color: var(--accent-ink); }
 
@@ -305,7 +306,7 @@ td.num, th.num { text-align: right; font-family: var(--mono); font-size: .88rem;
   .cta { padding: 9px 14px; }
   .brand { white-space: nowrap; }
   .lang-switch svg { display: none; }
-  .lang-switch > a, .lang-switch > span { padding: 8px 9px; }
+  .lang-switch > span { padding: 8px 9px; }
   .hero { padding: 24px 0 48px; }
   .hero-grid { grid-template-columns: 1fr; gap: 8px; }
   .portrait-wrap { order: -1; justify-self: start; }
