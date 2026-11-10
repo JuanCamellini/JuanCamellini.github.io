@@ -20,7 +20,7 @@ assets/cv/                    Public CVs: no phone, email or address
 tools/check_privacy.ps1       Pre-publish check for private data and pending items
 ```
 
-Plain HTML and CSS: no framework, no build step, no JavaScript, no cookies, no tracking.
+Plain HTML and CSS: no framework and no build step. The only JavaScript is anonymous, cookie-free statistics: [Umami Cloud](https://umami.is) for page views, plus `assets/js/stats.js` for reading time, sections seen and video plays.
 
 ## Preview locally
 
